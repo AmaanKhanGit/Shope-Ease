@@ -48,3 +48,16 @@ body {
 .section-heading a {
   color: var(--mainColor);
 }
+
+/*& DISABLE USER SELECT & BLUE HIGHLIGHT */
+* {
+  -webkit-tap-highlight-color: transparent;
+  /* Chrome, Safari, Android */
+  outline: none;
+  /* focus outline remove */
+  -webkit-user-select: none;
+  /* text select remove */
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
