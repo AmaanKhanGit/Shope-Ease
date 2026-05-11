@@ -3,12 +3,15 @@ import Header from "./components/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Home from "./routes/Home";
+import ProductListProvider from "./store/product-list-store";
 
 function App() {
   return (
     <>
       <Header />
-      <Home />
+      <ProductListProvider>
+        <Home />
+      </ProductListProvider>
       <Footer />
     </>
   );
