@@ -1,6 +1,6 @@
 .product-cont {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
 .product-card {
@@ -24,7 +24,7 @@
   height: 240px;
 
   /* background image styles */
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 
@@ -44,9 +44,14 @@
 }
 
 .title {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   color: #222;
+  display: -webkit-box;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .disc {
@@ -55,8 +60,8 @@
   color: #666;
 
   display: -webkit-box;
-  line-clamp: 4;
-  -webkit-line-clamp: 4;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -70,6 +75,11 @@
 .price::before {
   content: "₹";
   margin-right: 2px;
+}
+
+.actionCont {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media (max-width: 480px) {
@@ -95,7 +105,6 @@
 
   .disc {
     font-size: 13px;
-
     display: -webkit-box;
     line-clamp: 2;
     -webkit-line-clamp: 2;
@@ -105,5 +114,9 @@
 
   .price {
     font-size: 20px;
+  }
+
+  .actionCont {
+    flex-direction: column;
   }
 }

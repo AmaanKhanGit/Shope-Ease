@@ -30,3 +30,9 @@
 .quantity {
   color: #6f6363;
 }
+
+@media (max-width: 480px) {
+  .card-cont {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

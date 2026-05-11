@@ -5,7 +5,6 @@ const Loader = () => {
       <div className="spinner-grow loading-spinner" role="status"></div>
       <div className="spinner-grow loading-spinner" role="status"></div>
       <div className="spinner-grow loading-spinner" role="status"></div>
-      <div className="spinner-grow loading-spinner" role="status"></div>
     </>
   );
 };

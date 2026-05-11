@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Header.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import { LuSquareMenu } from "react-icons/lu";
 
 const Header = () => {
   const [isActive, setActive] = useState(false); //& for navigation toggle
@@ -17,28 +18,24 @@ const Header = () => {
   return (
     <>
       <header>
-        <div>
-          <h1 className="logo">Shope Ease</h1>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <h1 className="logo">ShopeEase</h1>
         </div>
         <nav className="navCont">
           <ul className="navigations">
             <li>Home</li>
             <li>Products</li>
-            <li>Services</li>
             <li>About Us</li>
             <li>Contact Us</li>
           </ul>
           <ul className={`nav-mobile ${isActive && "active"}`}>
             <li onClick={handleOnClick}>Home</li>
             <li onClick={handleOnClick}>Products</li>
-            <li onClick={handleOnClick}>Services</li>
             <li onClick={handleOnClick}>About Us</li>
             <li onClick={handleOnClick}>Contact Us</li>
           </ul>
-          <i
-            className="bi bi-menu-button-wide menu-bar"
-            onClick={handleOnClick}
-          ></i>
+
+          <LuSquareMenu className="menu-bar" onClick={handleOnClick} />
         </nav>
         <div className="icons">
           <i className="bi bi-person-circle"></i>
