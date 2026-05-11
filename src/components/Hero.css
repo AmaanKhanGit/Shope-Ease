@@ -1,10 +1,8 @@
 .hero {
-  width: 90vw;
   min-height: 70vh;
-  margin: 30px auto;
   background-color: #fff;
-  padding: 20px 40px;
   border-radius: 20px;
+  padding: 20px 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -150,11 +148,6 @@
 ========================= */
 
 @media (max-width: 480px) {
-  .hero {
-    width: 95vw;
-    padding: 20px 15px;
-  }
-
   .heading {
     font-size: 34px;
   }

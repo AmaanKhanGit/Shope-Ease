@@ -1,7 +1,7 @@
 import "./Hero.css";
 const Hero = () => {
   return (
-    <section className="hero">
+    <section className="hero sections">
       <div className="left">
         <div className="tag">TRENDING COLLECTION 2026</div>
         <h1 className="heading">Discover Modern Shopping</h1>
