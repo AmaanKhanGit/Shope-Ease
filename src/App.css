@@ -1,0 +1,34 @@
+:root {
+  --mainColor: #800020;
+  --secondaryColor: #f3d8dd;
+  --lightText: #f5e6e8;
+  --accentColor: #d4a5ad;
+  --whiteText: #ffffff;
+  --darkText: #2d1215;
+  --light-gray: #efefef;
+  --dark-gray: #a5a0a0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--light-gray);
+}

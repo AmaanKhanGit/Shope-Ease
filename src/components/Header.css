@@ -1,0 +1,170 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: sticky;
+  top: 7px;
+  background-color: #fff;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  margin: 10px auto;
+  border-radius: 20px;
+  z-index: 99;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+}
+
+.logo {
+  /* Brand mark — fixed font and size so header looks the same across pages */
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 36px;
+  font-style: italic;
+  font-weight: 600;
+  /* explicit default — overridden by media queries on small screens */
+  color: var(--mainColor);
+  text-shadow: 3px 3px 5px rgba(12, 12, 12, 0.1);
+}
+
+.nav-cont {
+  display: flex;
+  align-items: center;
+}
+.menu-bar {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+.navigations {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 0;
+  align-items: center;
+}
+
+.navigations li {
+  cursor: pointer;
+  font-size: 20px;
+  color: #000000;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+:is(.navigations, .nav-mobile) li:hover {
+  background-color: var(--light-gray);
+}
+
+.navigations > li:hover::after {
+  width: 100%;
+}
+
+.nav-mobile {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+
+  transform: translate(-50%, -158%);
+
+  display: flex;
+  justify-content: center;
+  z-index: 199;
+
+  background-color: #fff;
+  padding: 0;
+  border-radius: 10px;
+  font-size: 20px;
+  min-width: 90vw;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-mobile li {
+  cursor: pointer;
+  padding: 20px 10px;
+  border-radius: 10px;
+  transition: all 0.3s ease-out;
+}
+
+.nav-mobile.active {
+  transform: translate(-50%, -15%);
+}
+
+.icons {
+  display: flex;
+  gap: 20px;
+}
+
+.icons i {
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.icons span {
+  font-size: 12px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /*? dark transparent layer */
+  z-index: 99;
+  display: none;
+}
+
+.overlay.active {
+  display: block;
+}
+
+@media (max-width: 920px) {
+  header {
+    padding: 15px 40px;
+  }
+  .logo {
+    font-size: 26px;
+  }
+  .navigations {
+    gap: 17px;
+  }
+  .navigations li {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 720px) {
+  .navigations {
+    display: none;
+  }
+  .menu-bar {
+    display: block;
+  }
+}
+
+@media (max-width: 580px) {
+  .nav-mobile {
+    font-size: 17px;
+    padding: 15px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 15px 30px;
+    width: 90%;
+  }
+  .nav-mobile {
+    margin: 45px 0;
+    flex-direction: column;
+    padding: 10px;
+  }
+}
