@@ -10,10 +10,7 @@ const FetchProducts = ({ product }) => {
       <div className="product-content">
         <h2 className="title">{product.title}</h2>
         <p className="disc">{product.description}</p>
-        <div className="actionCont">
-          <p className="price">{product.price}</p>
-          <button className="btns addToCart">Add to Cart</button>
-        </div>
+        <p className="price">{product.price}</p>
       </div>
     </div>
   );

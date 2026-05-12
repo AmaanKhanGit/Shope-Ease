@@ -1,6 +1,6 @@
 .product-cont {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 .product-card {
@@ -77,11 +77,6 @@
   margin-right: 2px;
 }
 
-.actionCont {
-  display: flex;
-  justify-content: space-between;
-}
-
 @media (max-width: 480px) {
   .product-card {
     flex-direction: row;
@@ -114,9 +109,5 @@
 
   .price {
     font-size: 20px;
-  }
-
-  .actionCont {
-    flex-direction: column;
   }
 }

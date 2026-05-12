@@ -11,13 +11,8 @@ const ProductListProvider = ({ children }) => {
   const categories = [
     "smartphones",
     "furniture",
-    "beauty",
-    "mens-watches",
     "fragrances",
     "vehicle",
-    "kitchen-accessories",
-    "groceries",
-    "tops",
     "laptops",
   ];
 
