@@ -1,8 +1,8 @@
 .review-cont {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 30px;
-  padding: 40px 20px;
+  padding: 40px 100px;
 }
 
 /* EACH CARD */
@@ -77,3 +77,9 @@
   color: #444;
 }
 
+@media (max-width: 580px) {
+  .review-cont {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    padding: 80px 20px;
+  }
+}

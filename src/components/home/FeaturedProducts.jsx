@@ -1,13 +1,9 @@
-import { createContext, useEffect, useState } from "react";
+import "./FeaturedProducts.css";
+import Loader from "..//Loader";
+import FetchProducts from "./FetchProducts";
+import { useEffect, useState } from "react";
 
-const CONTEXT = {
-  productList: [],
-  isFethced: false,
-};
-
-export const ProductList = createContext(CONTEXT);
-
-const ProductListProvider = ({ children }) => {
+const FeaturedProducts = () => {
   const categories = [
     "smartphones",
     "furniture",
@@ -33,13 +29,24 @@ const ProductListProvider = ({ children }) => {
     loadProducts(categories);
   }, []);
 
-  const productList = products;
-
   return (
-    <ProductList.Provider value={{ productList, isFethced }}>
-      {children}
-    </ProductList.Provider>
+    <section className="sections">
+      <div className="section-heading">
+        <h1>Featured Products</h1>
+        <a href="#">
+          View All
+          <i className="bi bi-arrow-right"></i>
+        </a>
+      </div>
+      <div className="product-cont">
+        {!isFethced && <Loader />}
+        {isFethced &&
+          products.map((product) => (
+            <FetchProducts key={product.id} product={product} />
+          ))}
+      </div>
+    </section>
   );
 };
 
-export default ProductListProvider;
+export default FeaturedProducts;

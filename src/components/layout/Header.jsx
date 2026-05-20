@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./Header.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { LuSquareMenu } from "react-icons/lu";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isActive, setActive] = useState(false); //& for navigation toggle
@@ -19,20 +20,45 @@ const Header = () => {
     <>
       <header>
         <div style={{ display: "flex", alignItems: "center" }}>
-          <h1 className="logo">ShopeEase</h1>
+          <Link to="/">
+            <h1 className="logo">ShopeEase</h1>
+          </Link>
         </div>
         <nav className="navCont">
           <ul className="navigations">
-            <li>Home</li>
-            <li>Products</li>
-            <li>About Us</li>
-            <li>Contact Us</li>
+            <Link to="/">
+              <li>Home</li>
+            </Link>
+
+            <Link to="/products">
+              <li>Products</li>
+            </Link>
+
+            <Link to="/about-us">
+              <li>About Us</li>
+            </Link>
+
+            <Link to="/contact-us">
+              <li>Contact Us</li>
+            </Link>
           </ul>
+
           <ul className={`nav-mobile ${isActive && "active"}`}>
-            <li onClick={handleOnClick}>Home</li>
-            <li onClick={handleOnClick}>Products</li>
-            <li onClick={handleOnClick}>About Us</li>
-            <li onClick={handleOnClick}>Contact Us</li>
+            <Link to="/" onClick={handleOnClick}>
+              <li>Home</li>
+            </Link>
+
+            <Link to="/products" onClick={handleOnClick}>
+              <li>Products</li>
+            </Link>
+
+            <Link to="/about-us" onClick={handleOnClick}>
+              <li>About Us</li>
+            </Link>
+
+            <Link to="/contact-us" onClick={handleOnClick}>
+              <li>Contact Us</li>
+            </Link>
           </ul>
 
           <LuSquareMenu className="menu-bar" onClick={handleOnClick} />

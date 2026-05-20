@@ -1,17 +1,15 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import Home from "./routes/Home";
-import ProductListProvider from "./store/product-list-store";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
+import Footer from "./components//layout/Footer";
+import Header from "./components/layout/Header";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 
 function App() {
   return (
     <>
       <Header />
-      <ProductListProvider>
-        <Home />
-      </ProductListProvider>
+      <Outlet />
+      <ScrollRestoration />
       <Footer />
     </>
   );
