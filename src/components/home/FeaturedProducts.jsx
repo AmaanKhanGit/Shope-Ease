@@ -1,7 +1,9 @@
 import "./FeaturedProducts.css";
-import Loader from "..//Loader";
+import Loader from "../common/Loader";
 import FetchProducts from "./FetchProducts";
 import { useEffect, useState } from "react";
+import { getFeaturedProducts } from "../services/productAPI";
+import { Link } from "react-router-dom";
 
 const FeaturedProducts = () => {
   const categories = [
@@ -17,14 +19,9 @@ const FeaturedProducts = () => {
 
   useEffect(() => {
     const loadProducts = async (categories) => {
-      const promises = categories.map((category) =>
-        fetch(`https://dummyjson.com/products/category/${category}?limit=1`)
-          .then((res) => res.json())
-          .then((data) => data.products[0]),
-      );
-      const fecthedProducts = await Promise.all(promises);
+      const data = await getFeaturedProducts(categories);
       setFetched(true);
-      setProducts(fecthedProducts);
+      setProducts(data);
     };
     loadProducts(categories);
   }, []);
@@ -33,10 +30,10 @@ const FeaturedProducts = () => {
     <section className="sections">
       <div className="section-heading">
         <h1>Featured Products</h1>
-        <a href="#">
+        <Link to="/products">
           View All
           <i className="bi bi-arrow-right"></i>
-        </a>
+        </Link>
       </div>
       <div className="product-cont">
         {!isFethced && <Loader />}

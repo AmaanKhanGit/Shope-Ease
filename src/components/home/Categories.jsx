@@ -3,6 +3,7 @@ import "./Categories.css";
 import { FaLaptop, FaRegHeart, FaShoppingBag } from "react-icons/fa";
 
 import { IoHomeOutline, IoShirtOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const categoriesData = [
   {
@@ -43,10 +44,10 @@ const Categories = () => {
       <div className="section-heading">
         <h1>Categories</h1>
 
-        <a href="#">
+        <Link to="/products">
           View All
           <i className="bi bi-arrow-right"></i>
-        </a>
+        </Link>
       </div>
 
       <div className="card-cont">

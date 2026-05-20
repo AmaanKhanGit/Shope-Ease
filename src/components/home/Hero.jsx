@@ -1,5 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import "./Hero.css";
 const Hero = () => {
+  const navigate = useNavigate();
+  const handleClicks = () => {
+    navigate("/products");
+  };
   return (
     <section className="hero sections">
       <div className="left">
@@ -10,10 +15,10 @@ const Hero = () => {
           shopping experience designed for everyone.
         </p>
         <div className="btn-cont">
-          <button className="btns" id="shopeNow">
+          <button className="btns" id="shopeNow" onClick={handleClicks}>
             Shope Now
           </button>
-          <button className="btns" id="exploreNow">
+          <button className="btns" id="exploreNow" onClick={handleClicks}>
             Explore Now
           </button>
         </div>
