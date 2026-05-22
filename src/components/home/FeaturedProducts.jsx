@@ -35,7 +35,7 @@ const FeaturedProducts = () => {
           <i className="bi bi-arrow-right"></i>
         </Link>
       </div>
-      <div className="product-cont">
+      <div className="featured-product-cont">
         {!isFethced && <Loader />}
         {isFethced &&
           products.map((product) => (
