@@ -1,7 +1,9 @@
+import TopBar from "../components/products/TopBar";
+
 const Products = () => {
   return (
     <>
-      <h1>Products</h1>
+      <TopBar />
     </>
   );
 };
