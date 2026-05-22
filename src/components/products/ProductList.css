@@ -1,0 +1,17 @@
+.product-cont {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 40px 80px;
+}
+
+@media (max-width: 980px) {
+  .product-cont {
+    padding: 40px;
+  }
+}
+@media (max-width: 620px) {
+  .product-cont {
+    padding: 20px;
+  }
+}
