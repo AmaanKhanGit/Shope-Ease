@@ -3,21 +3,24 @@ import "./ProductList.css";
 import { getAllProducts } from "../services/productAPI";
 import { useEffect, useState } from "react";
 import Loader from "../common/Loader";
+import { useDispatch, useSelector } from "react-redux";
+import { productsAction } from "../store/products";
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
 
-  // const prodStore = useSelector();
+  //store product check
+  const products = useSelector((store) => store.products);
 
-  // const dispatch = useDispatch();
+  //dispatch check
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const loadProducts = async () => {
       const data = await getAllProducts();
-      setProducts(data);
       setLoaded(true);
-
+      dispatch(productsAction.addInitialProducts(data));
     };
 
     loadProducts();
@@ -26,9 +29,9 @@ const ProductList = () => {
   return (
     <div className="product-cont">
       {isLoaded ? (
-        products.map((product) => (
-          <Product key={product.id} product={product} />
-        ))
+        products
+          .filter((product) => product.id != 8)
+          .map((product) => <Product key={product.id} product={product} />)
       ) : (
         <Loader />
       )}

@@ -3,18 +3,16 @@ import "./Header.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { LuSquareMenu } from "react-icons/lu";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [isActive, setActive] = useState(false); //& for navigation toggle
-  const [counter, setCounter] = useState(0);
 
   const handleOnClick = () => {
     setActive((prev) => !prev);
   };
 
-  const handleCount = () => {
-    setCounter(counter + 1);
-  };
+  const cartCount = useSelector((store) => store.cart.length);
 
   return (
     <>
@@ -67,7 +65,7 @@ const Header = () => {
           <i className="bi bi-person-circle"></i>
           <i className="bi bi-cart position-relative">
             <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-              {counter}
+              {cartCount}
             </span>
           </i>
         </div>

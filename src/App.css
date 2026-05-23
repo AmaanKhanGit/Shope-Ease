@@ -1,10 +1,9 @@
 :root {
   --mainColor: #800020;
   --secondaryColor: #f3d8dd;
+  --removeBtn: #b22222;
   --lightText: #f5e6e8;
   --accentColor: #d4a5ad;
-  --whiteText: #ffffff;
-  --darkText: #2d1215;
   --light-gray: #efefef;
   --dark-gray: #a5a0a0;
 }

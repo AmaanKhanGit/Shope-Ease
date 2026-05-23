@@ -5,11 +5,11 @@ const productSlice = createSlice({
   initialState: [],
   reducers: {
     addInitialProducts: (state, action) => {
-      console.log(action.payload);
+      return action.payload;
     },
   },
 });
 
-export default productSlice;
+export default productSlice.reducer;
 
 export const productsAction = productSlice.actions;

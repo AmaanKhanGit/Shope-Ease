@@ -6,6 +6,8 @@ import Home from "./routes/Home.jsx";
 import Products from "./routes/Products.jsx";
 import AboutUs from "./routes/AboutUs.jsx";
 import ContactUs from "./routes/ContactUs.jsx";
+import { Provider } from "react-redux";
+import shopeEaseStore from "./components/store/index.js";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={shopeEaseStore}>
+      <RouterProvider router={router} />
+    </Provider>
   </StrictMode>,
 );
