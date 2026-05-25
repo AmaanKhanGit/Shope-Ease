@@ -1,0 +1,47 @@
+.empty-cart {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 60px 20px;
+}
+
+.empty-cart img {
+  width: 220px;
+
+  margin-bottom: 20px;
+}
+
+.empty-cart h2 {
+  font-size: 2rem;
+  font-weight: 700;
+
+  margin-bottom: 10px;
+}
+
+.empty-cart p {
+  color: #777;
+
+  margin-bottom: 25px;
+}
+
+.shop-btn {
+  border: none;
+
+  background: var(--removeBtn);
+  color: white;
+
+  padding: 14px 28px;
+
+  border-radius: 40px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}

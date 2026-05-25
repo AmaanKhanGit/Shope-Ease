@@ -63,11 +63,13 @@ const Header = () => {
         </nav>
         <div className="icons">
           <i className="bi bi-person-circle"></i>
-          <i className="bi bi-cart position-relative">
-            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-              {cartCount}
-            </span>
-          </i>
+          <Link to="/cart">
+            <i className="bi bi-cart position-relative">
+              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {cartCount}
+              </span>
+            </i>
+          </Link>
         </div>
         <div
           className={`overlay ${isActive && "active"}`}

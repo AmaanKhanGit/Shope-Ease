@@ -8,6 +8,7 @@ import AboutUs from "./routes/AboutUs.jsx";
 import ContactUs from "./routes/ContactUs.jsx";
 import { Provider } from "react-redux";
 import shopeEaseStore from "./components/store/index.js";
+import Cart from "./routes/Cart.jsx";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
       { path: "/products", element: <Products /> },
       { path: "/contact-us", element: <ContactUs /> },
       { path: "/about-us", element: <AboutUs /> },
+      { path: "/cart", element: <Cart /> },
     ],
   },
 ]);
