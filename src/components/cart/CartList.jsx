@@ -4,10 +4,7 @@ import "./CartList.css";
 import EmptyCart from "./EmptyCart";
 
 const CartList = () => {
-  const cartItems = useSelector((store) => store.cart);
-  console.log(cartItems);
-
-  cartItems.map((item) => console.log(item));
+  const cartItems = useSelector((store) => store.cart.cartItems);
 
   return (
     <>

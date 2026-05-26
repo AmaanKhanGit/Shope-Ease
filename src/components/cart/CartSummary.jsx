@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import "./CartSummary.css";
 
 const CartSummary = () => {
-  const cartItems = useSelector((store) => store.cart);
+  const cartItems = useSelector((store) => store.cart.cartItems);
 
   const totalItem = cartItems.reduce((total, item) => total + item.quantity, 0);
   const price = cartItems.reduce(

@@ -10,7 +10,6 @@ const FetchProducts = ({ product }) => {
       <div className="product-content">
         <h2 className="title">{product.title}</h2>
         <p className="disc">{product.description}</p>
-        <p className="price">{product.price}</p>
       </div>
     </div>
   );

@@ -7,8 +7,9 @@ import Products from "./routes/Products.jsx";
 import AboutUs from "./routes/AboutUs.jsx";
 import ContactUs from "./routes/ContactUs.jsx";
 import { Provider } from "react-redux";
-import shopeEaseStore from "./components/store/index.js";
+import shopeEaseStore, { persistor } from "./components/store/index.js";
 import Cart from "./routes/Cart.jsx";
+import { PersistGate } from "redux-persist/integration/react";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,10 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={shopeEaseStore}>
-      <RouterProvider router={router} />
+      {/*//~ setup for redux-persist*/}
+      <PersistGate loading={null} persistor={persistor}>
+        <RouterProvider router={router} />
+      </PersistGate>
     </Provider>
   </StrictMode>,
 );

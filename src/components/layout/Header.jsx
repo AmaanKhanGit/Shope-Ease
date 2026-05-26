@@ -12,7 +12,8 @@ const Header = () => {
     setActive((prev) => !prev);
   };
 
-  const cartCount = useSelector((store) => store.cart.length);
+  const cartItems = useSelector((store) => store.cart.cartItems);
+  const cartCount = cartItems.length;
 
   return (
     <>
