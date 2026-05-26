@@ -1,21 +1,23 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./Product.css";
 import { cartAction } from "../store/cart";
 import { useState } from "react";
 
 const Product = ({ product }) => {
-  const [isAdded, setAdded] = useState(false);
+  const cartItems = useSelector((store) => store.cart);
+
+  const isAdded = cartItems.some((item) => {
+    return item.id === product.id;
+  });
 
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
     dispatch(cartAction.addToCart(product));
-    setAdded(true);
   };
 
   const handleRemove = () => {
     dispatch(cartAction.removeFromCart(product));
-    setAdded(false);
   };
 
   return (

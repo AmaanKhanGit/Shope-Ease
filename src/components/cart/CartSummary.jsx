@@ -1,6 +1,19 @@
+import { useSelector } from "react-redux";
 import "./CartSummary.css";
 
 const CartSummary = () => {
+  const cartItems = useSelector((store) => store.cart);
+
+  const totalItem = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const price = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0,
+  );
+  const discount = price * 0.1;
+  const totalPrice = price - discount;
+
+  console.log(cartItems);
+
   return (
     <>
       <div className="cart-summary cart-content">
@@ -9,12 +22,12 @@ const CartSummary = () => {
 
           <div className="summary-row">
             <span>Total Items</span>
-            <span>3</span>
+            <span>{totalItem}</span>
           </div>
 
           <div className="summary-row">
             <span>Subtotal</span>
-            <span>₹2999</span>
+            <span>${price.toFixed(2)}</span>
           </div>
 
           <div className="summary-row">
@@ -24,12 +37,12 @@ const CartSummary = () => {
 
           <div className="summary-row">
             <span>Discount</span>
-            <span>-₹300</span>
+            <span>-10%</span>
           </div>
 
           <div className="summary-row total-row">
             <span>Total</span>
-            <span>₹2999</span>
+            <span>${totalPrice.toFixed(2)}</span>
           </div>
 
           <button className="checkout-btn">Proceed to Checkout</button>

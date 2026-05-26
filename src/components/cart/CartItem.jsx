@@ -1,5 +1,5 @@
 import { MdDelete } from "react-icons/md";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { cartAction } from "../store/cart";
 
 const CartItem = ({ item }) => {
@@ -7,6 +7,15 @@ const CartItem = ({ item }) => {
   const handleRemove = () => {
     dispatch(cartAction.removeFromCart(item));
   };
+
+  const handleIncrease = () => {
+    dispatch(cartAction.increaseQuantity(item.id));
+  };
+
+  const handleDecrease = () => {
+    dispatch(cartAction.decreaseQuantity(item.id));
+  };
+
   return (
     <>
       <div className="cart-card">
@@ -19,15 +28,15 @@ const CartItem = ({ item }) => {
 
           <p className="cart-card-category">{item.category}</p>
 
-          <h3>₹ {item.price}</h3>
+          <h3>$ {item.price}</h3>
 
           <div className="cart-card-actions">
             <div className="quantity-cont">
-              <button>-</button>
+              <button onClick={handleDecrease}>-</button>
 
-              <span>1</span>
+              <span>{item.quantity}</span>
 
-              <button>+</button>
+              <button onClick={handleIncrease}>+</button>
             </div>
 
             <button className="remove-btn" onClick={handleRemove}>

@@ -18,13 +18,23 @@ const ProductList = () => {
 
   useEffect(() => {
     const loadProducts = async () => {
-      const data = await getAllProducts();
-      setLoaded(true);
-      dispatch(productsAction.addInitialProducts(data));
+      try {
+        const data = await getAllProducts();
+
+        dispatch(productsAction.addInitialProducts(data));
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoaded(true);
+      }
     };
 
-    loadProducts();
-  }, []);
+    if (products.length === 0) {
+      loadProducts();
+    } else {
+      setLoaded(true);
+    }
+  }, [products.length]);
 
   return (
     <div className="product-cont">
