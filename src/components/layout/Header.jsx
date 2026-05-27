@@ -32,14 +32,6 @@ const Header = () => {
             <Link to="/products">
               <li>Products</li>
             </Link>
-
-            <Link to="/about-us">
-              <li>About Us</li>
-            </Link>
-
-            <Link to="/contact-us">
-              <li>Contact Us</li>
-            </Link>
           </ul>
 
           <ul className={`nav-mobile ${isActive && "active"}`}>
@@ -49,14 +41,6 @@ const Header = () => {
 
             <Link to="/products" onClick={handleOnClick}>
               <li>Products</li>
-            </Link>
-
-            <Link to="/about-us" onClick={handleOnClick}>
-              <li>About Us</li>
-            </Link>
-
-            <Link to="/contact-us" onClick={handleOnClick}>
-              <li>Contact Us</li>
             </Link>
           </ul>
 

@@ -3,9 +3,7 @@ import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./routes/Home.jsx";
-import Products from "./routes/Products.jsx";
-import AboutUs from "./routes/AboutUs.jsx";
-import ContactUs from "./routes/ContactUs.jsx";
+import Products from "./routes/Products.jsx"; 
 import { Provider } from "react-redux";
 import shopeEaseStore, { persistor } from "./components/store/index.js";
 import Cart from "./routes/Cart.jsx";
@@ -18,8 +16,6 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/products", element: <Products /> },
-      { path: "/contact-us", element: <ContactUs /> },
-      { path: "/about-us", element: <AboutUs /> },
       { path: "/cart", element: <Cart /> },
     ],
   },

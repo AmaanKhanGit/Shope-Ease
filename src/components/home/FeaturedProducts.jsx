@@ -36,7 +36,7 @@ const FeaturedProducts = () => {
         </Link>
       </div>
       <div className="featured-product-cont">
-        {!isFethced && <Loader />}
+        {!isFethced && <Loader length={5} />}
         {isFethced &&
           products.map((product) => (
             <FetchProducts key={product.id} product={product} />

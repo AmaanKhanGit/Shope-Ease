@@ -43,7 +43,7 @@ const ProductList = () => {
           .filter((product) => product.id != 8)
           .map((product) => <Product key={product.id} product={product} />)
       ) : (
-        <Loader />
+        <Loader length={10}/>
       )}
     </div>
   );

@@ -1,9 +1,9 @@
 import "./Loader.css";
 
-const Loader = () => {
+const Loader = ({ length }) => {
   return (
     <>
-      {Array.from({ length: 5 }).map((_, index) => (
+      {Array.from({ length: length }).map((_, index) => (
         <div key={index} className="product-card skeleton-card">
           <div className="product-img skeleton"></div>
 
