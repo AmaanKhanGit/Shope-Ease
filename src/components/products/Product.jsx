@@ -5,7 +5,6 @@ import { useState } from "react";
 
 const Product = ({ product }) => {
   const cartItems = useSelector((store) => store.cart.cartItems);
-  console.log(cartItems);
 
   const isAdded = cartItems.some((item) => {
     return item.id === product.id;

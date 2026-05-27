@@ -96,7 +96,6 @@
 
 @media (max-width: 768px) {
   .topbar {
-    width: 92%;
     gap: 8px;
     margin: 20px auto;
   }

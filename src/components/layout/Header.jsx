@@ -1,66 +1,107 @@
-import { useState } from "react";
 import "./Header.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { LuSquareMenu } from "react-icons/lu";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Header = () => {
-  const [isActive, setActive] = useState(false); //& for navigation toggle
-
-  const handleOnClick = () => {
-    setActive((prev) => !prev);
-  };
-
   const cartItems = useSelector((store) => store.cart.cartItems);
   const cartCount = cartItems.length;
 
   return (
     <>
-      <header>
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <Link to="/">
-            <h1 className="logo">ShopeEase</h1>
-          </Link>
-        </div>
-        <nav className="navCont">
-          <ul className="navigations">
+      {/* desktop header */}
+      <div className="desktop-header">
+        <header>
+          <div className="left-header">
             <Link to="/">
-              <li>Home</li>
+              <h1 className="logo">ShopeEase</h1>
             </Link>
+            <ul className="navigations">
+              <Link to="/">
+                <li>Home</li>
+              </Link>
 
-            <Link to="/products">
-              <li>Products</li>
+              <Link to="/products">
+                <li>Products</li>
+              </Link>
+              <Link to="/login-signup">
+                <button className="btn login-signup">Login / Sign Up</button>
+              </Link>
+            </ul>
+          </div>
+          <div className="icons">
+            <Link to="/wishlist">
+              <i className="bi bi-heart-fill"></i>
             </Link>
-          </ul>
-
-          <ul className={`nav-mobile ${isActive && "active"}`}>
-            <Link to="/" onClick={handleOnClick}>
-              <li>Home</li>
+            <Link to="/profile">
+              <i className="bi bi-person-circle"></i>
             </Link>
-
-            <Link to="/products" onClick={handleOnClick}>
-              <li>Products</li>
+            <Link to="/cart">
+              <i className="bi bi-cart position-relative">
+                <span className="cart-badge position-absolute top-0 start-100 translate-middle badge rounded-pill ">
+                  {cartCount}
+                </span>
+              </i>
             </Link>
-          </ul>
+          </div>
+         
+        </header>
+      </div>
 
-          <LuSquareMenu className="menu-bar" onClick={handleOnClick} />
-        </nav>
-        <div className="icons">
-          <i className="bi bi-person-circle"></i>
-          <Link to="/cart">
-            <i className="bi bi-cart position-relative">
-              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                {cartCount}
-              </span>
-            </i>
+      {/* mobile header */}
+      <div className="mobile-header">
+        <div className="mobile-top-header">
+          <Link to="/">
+            <h1 className="logo">ShopEase</h1>
           </Link>
+
+          <div className="mobile-top-icons">
+            <div className="icons">
+              <Link to="/wishlist">
+                <i className="bi bi-heart-fill"></i>
+              </Link>
+
+              <Link to="/cart">
+                <i className="bi bi-cart position-relative">
+                  <span className="cart-badge position-absolute top-0 start-100 translate-middle badge rounded-pill ">
+                    {cartCount}
+                  </span>
+                </i>
+              </Link>
+            </div>
+          </div>
         </div>
-        <div
-          className={`overlay ${isActive && "active"}`}
-          onClick={handleOnClick}
-        ></div>
-      </header>
+
+        <nav className="mobile-bottom-nav">
+          <Link to="/">
+            <div className="mobile-nav-item">
+              <i className="bi bi-house-door-fill"></i>
+              <span>Home</span>
+            </div>
+          </Link>
+
+          <Link to="/products">
+            <div className="mobile-nav-item">
+              <i className="bi bi-grid-fill"></i>
+              <span>Products</span>
+            </div>
+          </Link>
+
+          <Link to="/login-signup">
+            <div className="mobile-nav-item">
+              <i className="bi bi-box-arrow-in-right"></i>
+              <span>Login</span>
+            </div>
+          </Link>
+
+          <Link to="/profile">
+            <div className="mobile-nav-item">
+              <i className="bi bi-person-circle"></i>
+              <span>Profile</span>
+            </div>
+          </Link>
+        </nav>
+      </div>
     </>
   );
 };

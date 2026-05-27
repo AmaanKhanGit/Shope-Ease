@@ -45,11 +45,12 @@ a {
 
 body {
   background-color: var(--light-gray);
+  padding-top: 100px;
 }
 
 .sections {
   width: 90vw;
-  margin: 50px auto;
+  margin: 10px auto;
 }
 
 .section-heading {
