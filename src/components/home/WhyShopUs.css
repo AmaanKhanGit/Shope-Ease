@@ -1,0 +1,46 @@
+.why-shop-us {
+  width: 90vw;
+  margin: 10px auto;
+  text-align: left;
+}
+
+.why-shop-us h2 {
+  font-size: 2.2rem;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+}
+
+.feature-card {
+  background-color: #fff;
+  padding: 35px 25px;
+  border-radius: 18px;
+  transition: 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accentColor);
+}
+
+.feature-card i {
+  font-size: 2.3rem;
+  color: var(--mainColor);
+  margin-bottom: 18px;
+}
+
+.feature-card h3 {
+  color: var(--mainColor);
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  color: #444;
+  line-height: 1.5;
+}

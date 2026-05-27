@@ -1,0 +1,121 @@
+.newsletter {
+  width: 100%;
+  padding: 80px 8%;
+  margin-top: 50px;
+  background-color: #faf7f7;
+  text-align: center;
+}
+
+.newsletter-content h2 {
+  font-size: 2.5rem;
+  color: var(--mainColor);
+  margin-bottom: 15px;
+}
+
+.newsletter-content p {
+  max-width: 600px;
+  margin: auto;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 35px;
+}
+
+.newsletter-form {
+  max-width: 650px;
+  margin: auto;
+  background-color: white;
+  border-radius: 60px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.newsletter-form input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 15px 20px;
+  font-size: 1rem;
+  background: transparent;
+}
+
+.newsletter-form button {
+  border: none;
+  background-color: var(--mainColor);
+  color: white;
+  padding: 15px 28px;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  opacity: 0.9;
+  transform: scale(1.03);
+}
+
+.newsletter-features {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.news-card {
+  background-color: white;
+  padding: 25px 20px;
+  border-radius: 18px;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.news-card:hover {
+  transform: translateY(-6px);
+}
+
+.news-card i {
+  font-size: 2rem;
+  color: var(--mainColor);
+  margin-bottom: 12px;
+}
+
+.news-card p {
+  color: #444;
+  font-weight: 500;
+}
+
+.best-wish {
+  display: inline-block;
+  margin-top: 45px;
+  color: var(--mainColor);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 768px) {
+  .newsletter {
+    padding: 60px 5%;
+  }
+
+  .newsletter-content h2 {
+    font-size: 2rem;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    border-radius: 20px;
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    width: 100%;
+  }
+
+  .newsletter-form button {
+    border-radius: 12px;
+  }
+}
