@@ -9,7 +9,7 @@ export const getFeaturedProducts = async (categories) => {
 };
 
 export const getAllProducts = async () => {
-  const res = await fetch("https://dummyjson.com/products");
+  const res = await fetch("https://dummyjson.com/products?limit=199");
   const data = await res.json();
 
   return data.products;

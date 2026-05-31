@@ -1,12 +1,29 @@
+import { useRef } from "react";
 import "./TopBar.css";
+import { useDispatch } from "react-redux";
+import { productsAction } from "../store/products";
 
 const TopBar = () => {
+  const inputRef = useRef();
+  const dispatch = useDispatch();
+
+  const handleSearch = (e) => {
+    if (e.key === "Enter") {
+      const inputval = inputRef.current.value;
+      console.log(inputval);
+    }
+  };
   return (
     <div className="topbar">
       <div className="search-box">
         <i className="bi bi-search"></i>
 
-        <input type="text" placeholder="Search products..." />
+        <input
+          ref={inputRef}
+          onKeyDown={handleSearch}
+          type="text"
+          placeholder="Search products..."
+        />
       </div>
 
       <button className="topbar-btn">

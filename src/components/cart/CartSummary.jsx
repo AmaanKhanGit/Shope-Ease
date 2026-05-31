@@ -12,8 +12,6 @@ const CartSummary = () => {
   const discount = price * 0.1;
   const totalPrice = price - discount;
 
-  console.log(cartItems);
-
   return (
     <>
       <div className="cart-summary cart-content">

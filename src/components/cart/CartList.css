@@ -102,7 +102,7 @@
   border: none;
   background: transparent;
 
-  color: crimson;
+  color: var(--mainColor);
 
   font-weight: 600;
   font-size: 30px;

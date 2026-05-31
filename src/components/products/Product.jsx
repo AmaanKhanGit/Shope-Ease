@@ -24,10 +24,10 @@ const Product = ({ product }) => {
     <div className="product-card">
       <div
         className="product-img"
-        style={{
-          backgroundImage: `url(${encodeURI(product.thumbnail)})`,
-        }}
-      ></div>
+        
+      >
+        <img src={encodeURI(product.thumbnail)} alt={product.title} />
+      </div>
       <div className="product-content">
         <h2 className="title">{product.title}</h2>
         <p className="disc">{product.description}</p>

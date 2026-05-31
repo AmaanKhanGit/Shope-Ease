@@ -39,11 +39,11 @@ const ProductList = () => {
   return (
     <div className="product-cont">
       {isLoaded ? (
-        products
-          .filter((product) => product.id != 8)
-          .map((product) => <Product key={product.id} product={product} />)
+        products.map((product) => (
+          <Product key={product.id} product={product} />
+        ))
       ) : (
-        <Loader length={10}/>
+        <Loader length={10} />
       )}
     </div>
   );
