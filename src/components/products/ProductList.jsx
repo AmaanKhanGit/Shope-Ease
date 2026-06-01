@@ -1,6 +1,6 @@
 import Product from "./Product";
 import "./ProductList.css";
-import { getAllProducts } from "../services/productAPI";
+import { getAllProducts, getProductsByCategory } from "../services/productAPI";
 import { useEffect, useRef, useState } from "react";
 import Loader from "../common/Loader";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,37 +15,44 @@ const ProductList = () => {
 
   const productsRef = useRef();
 
-  //store product check
+  const dispatch = useDispatch();
+
   const { products, search, sort, filter } = useSelector(
     (store) => store.products,
   );
 
-  //dispatch check
-
-  const dispatch = useDispatch();
-
   const limit = 20;
   const skip = (currPage - 1) * limit;
 
-  useEffect(() => {
-    const loadProducts = async () => {
-      try {
-        setLoaded(false);
+  const loadProducts = async () => {
+    try {
+      setLoaded(false);
 
-        const data = await getAllProducts(limit, skip);
-        dispatch(productsAction.setProducts(data.products));
-        setTotalPages(Math.ceil(data.total / limit));
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoaded(true);
+      let data;
+
+      if (filter) {
+        data = await getProductsByCategory(filter, limit, skip);
+      } else {
+        data = await getAllProducts(limit, skip);
       }
-    };
 
+      dispatch(productsAction.setProducts(data.products));
+
+      setTotalPages(Math.ceil(data.total / limit));
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoaded(true);
+    }
+  };
+
+  useEffect(() => {
     loadProducts();
-  }, [currPage, dispatch]);
+  }, [currPage, filter]);
 
-  const firstRender = useRef(true);
+  useEffect(() => {
+    setCurrPage(1);
+  }, [filter]);
 
   const changePage = (page) => {
     setCurrPage(page);
@@ -56,9 +63,7 @@ const ProductList = () => {
     });
   };
 
-  //? search sort and filter logic
-
-  const result = proccessProducts(products, search, filter, sort);
+  const result = proccessProducts(products, search, sort);
 
   return (
     <>
@@ -71,13 +76,12 @@ const ProductList = () => {
           <Loader length={10} />
         )}
       </div>
-      <div className="pagination">
-        <Pagination
-          currPage={currPage}
-          totalPages={totalPages}
-          changePage={changePage}
-        />
-      </div>
+
+      <Pagination
+        currPage={currPage}
+        totalPages={totalPages}
+        changePage={changePage}
+      />
     </>
   );
 };

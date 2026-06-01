@@ -66,6 +66,10 @@ footer {
   color: var(--accentColor);
 }
 
+.footer-info .icons i {
+  color: var(--lightText);
+}
+
 .footer-bottom {
   text-align: center;
   padding-top: 2rem;

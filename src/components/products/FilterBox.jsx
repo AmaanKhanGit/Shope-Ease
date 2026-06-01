@@ -20,28 +20,31 @@ const FilterBox = ({
     "mens-watches",
     "mobile-accessories",
   ];
+
   return (
     <div className="dialog-box" onClick={stopPropagation}>
       <h3>Filters</h3>
+
       <div className="filter-group">
+        <label>
+          <input
+            type="radio"
+            name="category"
+            value=""
+            checked={selectedFilter === ""}
+            onChange={(e) => setSelectedFilter(e.target.value)}
+          />
+          All Categories
+        </label>
 
         {categories.map((category) => (
           <label key={category}>
             <input
-              type="checkbox"
+              type="radio"
+              name="category"
               value={category}
-              checked={selectedFilter.includes(category)}
-              onChange={(e) => {
-                const value = e.target.value;
-
-                if (e.target.checked) {
-                  setSelectedFilter((prev) => [...prev, value]);
-                } else {
-                  setSelectedFilter((prev) =>
-                    prev.filter((item) => item !== value),
-                  );
-                }
-              }}
+              checked={selectedFilter === category}
+              onChange={(e) => setSelectedFilter(e.target.value)}
             />
 
             {category
@@ -51,14 +54,10 @@ const FilterBox = ({
           </label>
         ))}
       </div>
-      <div className="filter-actions">
-        <button className="clear-btn" onClick={clearFilters}>
-          Clear
-        </button>
-        <button className="apply-btn" onClick={applyFilter}>
-          Apply
-        </button>
-      </div>
+
+      <button className="apply-btn" onClick={applyFilter}>
+        Apply
+      </button>
     </div>
   );
 };

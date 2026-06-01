@@ -16,3 +16,12 @@ export const getAllProducts = async (limit, skip) => {
 
   return data;
 };
+
+export const getProductsByCategory = async (filter, limit, skip) => {
+  const res = await fetch(
+    `  https://dummyjson.com/products/category/${filter}?limit=${limit}&skip=${skip}`,
+  );
+  const data = await res.json();
+
+  return data;
+};

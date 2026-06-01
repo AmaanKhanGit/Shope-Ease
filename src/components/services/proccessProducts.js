@@ -1,4 +1,4 @@
-export const proccessProducts = (products, search, filter, sort) => {
+export const proccessProducts = (products, search, sort) => {
   let result = [...products];
 
   // Search
@@ -8,11 +8,6 @@ export const proccessProducts = (products, search, filter, sort) => {
         item.title.toLowerCase().includes(search.toLowerCase()) ||
         item.category.toLowerCase().includes(search.toLowerCase()),
     );
-  }
-
-  // Filter (multiple categories)
-  if (filter.length > 0) {
-    result = result.filter((item) => filter.includes(item.category));
   }
 
   // Sort

@@ -6,7 +6,7 @@ const productSlice = createSlice({
     products: [],
     search: "",
     sort: "",
-    filter: [],
+    filter: "",
   },
   reducers: {
     setProducts: (state, action) => {
@@ -23,7 +23,7 @@ const productSlice = createSlice({
       state.filter = action.payload;
     },
     clearFilter: (state) => {
-      state.filter = [];
+      state.filter = "";
     },
   },
 });

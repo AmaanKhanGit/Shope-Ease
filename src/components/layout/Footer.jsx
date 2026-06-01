@@ -35,7 +35,7 @@ const Footer = () => {
                 <i className="bi bi-github"></i>
               </a>
               <a
-                href="https://www.linkedin.com/in/amaan-khan-036b9a32a"
+                href="https://www.linkedin.com/in/amaan-khan-774657383/"
                 target="_blank"
               >
                 <i className="bi bi-linkedin"></i>

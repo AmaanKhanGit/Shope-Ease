@@ -1,6 +1,8 @@
+import "./Pagination.css";
+
 const Pagination = ({ currPage, totalPages, changePage }) => {
   return (
-    <>
+    <div className="pagination">
       <button
         onClick={() => changePage(currPage - 1)}
         disabled={currPage === 1}
@@ -24,7 +26,7 @@ const Pagination = ({ currPage, totalPages, changePage }) => {
       >
         Next
       </button>
-    </>
+    </div>
   );
 };
 
