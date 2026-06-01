@@ -1,3 +1,5 @@
+import "./SortFilter.css";
+
 const FilterBox = ({
   selectedFilter,
   setSelectedFilter,
@@ -22,7 +24,6 @@ const FilterBox = ({
     <div className="dialog-box" onClick={stopPropagation}>
       <h3>Filters</h3>
       <div className="filter-group">
-        <h4>Category</h4>
 
         {categories.map((category) => (
           <label key={category}>

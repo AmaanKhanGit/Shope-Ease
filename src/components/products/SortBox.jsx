@@ -1,3 +1,5 @@
+import "./SortFilter.css";
+
 const SortBox = ({
   selectedSort,
   setSelectedSort,

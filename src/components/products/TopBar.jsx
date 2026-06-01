@@ -79,32 +79,30 @@ const TopBar = () => {
 
       {/*//? sort  */}
 
-      <div
-        className={`dialog-overlay ${isSort ? "active" : ""}`}
-        onClick={() => setSort(false)}
-      >
-        <SortBox
-          selectedSort={selectedSort}
-          setSelectedSort={setSelectedSort}
-          applySort={applySort}
-          stopPropagation={stopPropagation}
-        />
-      </div>
+      {isSort && (
+        <div className="dialog-overlay active" onClick={() => setSort(false)}>
+          <SortBox
+            selectedSort={selectedSort}
+            setSelectedSort={setSelectedSort}
+            applySort={applySort}
+            stopPropagation={stopPropagation}
+          />
+        </div>
+      )}
 
       {/* //? filter */}
 
-      <div
-        className={`dialog-overlay ${isFilter ? "active" : ""}`}
-        onClick={() => setFilter(false)}
-      >
-        <FilterBox
-          selectedFilter={selectedFilter}
-          setSelectedFilter={setSelectedFilter}
-          applyFilter={applyFilter}
-          clearFilters={clearFilters}
-          stopPropagation={stopPropagation}
-        />
-      </div>
+      {isFilter && (
+        <div className="dialog-overlay active" onClick={() => setFilter(false)}>
+          <FilterBox
+            selectedFilter={selectedFilter}
+            setSelectedFilter={setSelectedFilter}
+            applyFilter={applyFilter}
+            clearFilters={clearFilters}
+            stopPropagation={stopPropagation}
+          />
+        </div>
+      )}
     </div>
   );
 };
