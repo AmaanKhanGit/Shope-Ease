@@ -1,13 +1,19 @@
 import Product from "./Product";
 import "./ProductList.css";
 import { getAllProducts } from "../services/productAPI";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Loader from "../common/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { productsAction } from "../store/products";
+import { proccessProducts } from "../services/proccessProducts";
+import Pagination from "./Pagination";
 
 const ProductList = () => {
   const [isLoaded, setLoaded] = useState(false);
+  const [currPage, setCurrPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+
+  const productsRef = useRef();
 
   //store product check
   const { products, search, sort, filter } = useSelector(
@@ -18,12 +24,17 @@ const ProductList = () => {
 
   const dispatch = useDispatch();
 
+  const limit = 20;
+  const skip = (currPage - 1) * limit;
+
   useEffect(() => {
     const loadProducts = async () => {
       try {
-        const data = await getAllProducts();
+        setLoaded(false);
 
-        dispatch(productsAction.addInitialProducts(data));
+        const data = await getAllProducts(limit, skip);
+        dispatch(productsAction.setProducts(data.products));
+        setTotalPages(Math.ceil(data.total / limit));
       } catch (error) {
         console.log(error);
       } finally {
@@ -31,76 +42,43 @@ const ProductList = () => {
       }
     };
 
-    if (products.length === 0) {
-      loadProducts();
-    } else {
-      setLoaded(true);
-    }
-  }, [products.length]);
+    loadProducts();
+  }, [currPage, dispatch]);
 
-  //? increase prodcuts
-  const bigData = [
-    ...products,
+  const firstRender = useRef(true);
 
-    ...products.map((p) => ({
-      ...p,
-      id: p.id + 100,
-      title: `${p.title} Pro`,
-      price: p.price + 50,
-    })),
+  const changePage = (page) => {
+    setCurrPage(page);
 
-    ...products.map((p) => ({
-      ...p,
-      id: p.id + 200,
-      title: `${p.title} Max`,
-      price: p.price + 100,
-    })),
-  ];
+    productsRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
 
   //? search sort and filter logic
 
-  let result = [...bigData];
-  // Search
-  if (search) {
-    result = result.filter(
-      (item) =>
-        item.title.toLowerCase().includes(search.toLowerCase()) ||
-        item.category.toLowerCase().includes(search.toLowerCase()),
-    );
-  }
-
-  // Filter (multiple categories)
-  if (filter.length > 0) {
-    result = result.filter((item) => filter.includes(item.category));
-  }
-
-  // Sort
-  if (sort === "Low to High") {
-    result.sort((a, b) => a.price - b.price);
-  }
-
-  if (sort === "High to Low") {
-    result.sort((a, b) => b.price - a.price);
-  }
-
-  if (sort === "rating") {
-    result.sort((a, b) => b.rating - a.rating);
-  }
-
-  if (sort === "name") {
-    result.sort((a, b) => a.title.localeCompare(b.title));
-  }
+  const result = proccessProducts(products, search, filter, sort);
 
   return (
-    <div className="product-cont">
-      {isLoaded ? (
-        result.map((product) => (
-          <Product key={Math.random()} product={product} />
-        ))
-      ) : (
-        <Loader length={10} />
-      )}
-    </div>
+    <>
+      <div ref={productsRef} className="product-cont">
+        {isLoaded ? (
+          result.map((product) => (
+            <Product key={product.id} product={product} />
+          ))
+        ) : (
+          <Loader length={10} />
+        )}
+      </div>
+      <div className="pagination">
+        <Pagination
+          currPage={currPage}
+          totalPages={totalPages}
+          changePage={changePage}
+        />
+      </div>
+    </>
   );
 };
 

@@ -9,9 +9,10 @@ const productSlice = createSlice({
     filter: [],
   },
   reducers: {
-    addInitialProducts: (state, action) => {
+    setProducts: (state, action) => {
       state.products = action.payload;
     },
+
     setSearch: (state, action) => {
       state.search = action.payload;
     },

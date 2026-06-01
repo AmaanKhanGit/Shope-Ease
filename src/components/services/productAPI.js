@@ -8,9 +8,11 @@ export const getFeaturedProducts = async (categories) => {
   return await Promise.all(promises);
 };
 
-export const getAllProducts = async () => {
-  const res = await fetch("https://dummyjson.com/products?limit=199");
+export const getAllProducts = async (limit, skip) => {
+  const res = await fetch(
+    `https://dummyjson.com/products?limit=${limit}&skip=${skip}`,
+  );
   const data = await res.json();
 
-  return data.products;
+  return data;
 };
