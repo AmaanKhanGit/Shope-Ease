@@ -22,10 +22,8 @@ const Product = ({ product }) => {
 
   return (
     <div className="product-card">
-      <div
-        className="product-img"
-        
-      >
+      <div className="product-img">
+        <i className="bi bi-heart"></i>
         <img src={encodeURI(product.thumbnail)} alt={product.title} />
       </div>
       <div className="product-content">
