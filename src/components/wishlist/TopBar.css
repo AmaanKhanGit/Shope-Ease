@@ -1,0 +1,115 @@
+.wishlist-topbar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 24px;
+  border-radius: 16px;
+  /* background: #ffffff;
+  box-shadow:
+    0 4px 18px rgba(0, 0, 0, 0.03),
+    0 1px 3px rgba(0, 0, 0, 0.01); */
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+}
+
+.wishlist-info h1 {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.02em;
+}
+
+.wishlist-info p {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+  color: #6b7280;
+  margin: 0;
+  margin-top: 10px;
+  font-weight: 400;
+}
+
+.wishlist-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: auto;
+}
+
+.wishlist-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 20px;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.btn.sort-wishlist-btn {
+  background-color: #fff;
+  color: #111827;
+  border: 1px solid #e5e7eb;
+}
+
+.btn.sort-wishlist-btn:hover {
+  background-color: #f8f8f9ef;
+  border-color: #f8f8f8;
+  color: #000000;
+}
+
+.clear-wishlist-btn {
+  background-color: var(--mainColor);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  flex-grow: 1;
+}
+
+.clear-wishlist-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  filter: brightness(1.05);
+}
+
+.clear-wishlist-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.wishlist-actions i {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+@media (min-width: 640px) {
+  .wishlist-topbar {
+    flex-direction: row;
+    align-items: center;
+    padding: 28px 32px;
+    gap: 24px;
+  }
+
+  .wishlist-actions {
+    margin-left: auto;
+  }
+
+  .clear-wishlist-btn {
+    flex-grow: 0;
+  }
+}

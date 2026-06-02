@@ -126,6 +126,11 @@ body {
   top: calc(80px + 20px);
 }
 
+.wishlist-container {
+  width: 90vw;
+  margin: auto;
+}
+
 @media (max-width: 768px) {
   .cart-cont {
     grid-template-columns: 1fr;
