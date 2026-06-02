@@ -2,12 +2,18 @@ import { useDispatch, useSelector } from "react-redux";
 import "./Product.css";
 import { cartAction } from "../store/cart";
 import { useState } from "react";
+import { wishlistAction } from "../store/wishlist";
 
 const Product = ({ product }) => {
   const cartItems = useSelector((store) => store.cart.cartItems);
+  const wishlistItems = useSelector((store) => store.wishlist);
 
   const isAdded = cartItems.some((item) => {
     return item.id === product.id;
+  });
+
+  let isWishlisted = wishlistItems.some((wish) => {
+    return wish.id === product.id;
   });
 
   const dispatch = useDispatch();
@@ -20,10 +26,25 @@ const Product = ({ product }) => {
     dispatch(cartAction.removeFromCart(product));
   };
 
+  const handleWishlist = () => {
+    if (isWishlisted) {
+      console.log("removing");
+
+      dispatch(wishlistAction.removeFromWishlist(product));
+    } else {
+      console.log("adding");
+      dispatch(wishlistAction.addToWishlist(product));
+      isWishlisted = false;
+    }
+  };
+
   return (
     <div className="product-card">
       <div className="product-img">
-        <i className="bi bi-heart"></i>
+        <i
+          className={`bi bi-heart${isWishlisted ? "-fill" : ""}`}
+          onClick={handleWishlist}
+        ></i>
         <img src={encodeURI(product.thumbnail)} alt={product.title} />
       </div>
       <div className="product-content">

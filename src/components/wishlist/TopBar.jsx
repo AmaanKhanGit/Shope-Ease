@@ -1,7 +1,11 @@
+import { useDispatch, useSelector } from "react-redux";
 import "./TopBar.css";
+import { wishlistAction } from "../store/wishlist";
 
 const TopBar = () => {
-  const wishlist = [];
+  const wishlist = useSelector((store) => store.wishlist);
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className="wishlist-topbar">
@@ -15,12 +19,19 @@ const TopBar = () => {
         </div>
 
         <div className="wishlist-actions">
-          <button className="btn sort-wishlist-btn">
+          <button
+            className="btn sort-wishlist-btn"
+            disabled
+            title="Sorting coming soon"
+          >
             <i className="bi bi-sort-down"></i>
             Sort
           </button>
 
-          <button className="clear-wishlist-btn">
+          <button
+            className="clear-wishlist-btn"
+            onClick={() => dispatch(wishlistAction.clearWishlist())}
+          >
             <i className="bi bi-trash"></i>
             Clear All
           </button>
