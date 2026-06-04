@@ -1,9 +1,9 @@
 .wishlistCont {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  justify-content: center;
+  place-content: center;
   gap: 20px;
-  padding: 20px 80px;
+  padding: 20px;
   scroll-margin-top: 80px;
 }
 
@@ -15,12 +15,6 @@
 @media (max-width: 620px) {
   .wishlistCont {
     padding: 20px;
-    grid-template-columns: 1fr;
-  }
-}
-@media (max-width: 480px) {
-  .wishlistCont {
-    padding: 20px 10px;
     grid-template-columns: 1fr;
   }
 }

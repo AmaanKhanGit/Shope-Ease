@@ -5,7 +5,7 @@ import WishlistItems from "../components/wishlist/WishlistItems";
 import { useSelector } from "react-redux";
 
 const Wishlist = () => {
-  const wishlist = useSelector((store) => store.wishlist);
+  const { wishlist } = useSelector((store) => store.wishlist);
 
   return (
     <div className="wishlist-container">

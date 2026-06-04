@@ -128,7 +128,7 @@ body {
 
 .wishlist-container {
   width: 90vw;
-  margin: auto;
+  margin: 0 auto;
 }
 
 @media (max-width: 768px) {

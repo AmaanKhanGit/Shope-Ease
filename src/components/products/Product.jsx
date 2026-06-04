@@ -6,13 +6,13 @@ import { wishlistAction } from "../store/wishlist";
 
 const Product = ({ product }) => {
   const cartItems = useSelector((store) => store.cart.cartItems);
-  const wishlistItems = useSelector((store) => store.wishlist);
+  const { wishlist } = useSelector((store) => store.wishlist);
 
   const isAdded = cartItems.some((item) => {
     return item.id === product.id;
   });
 
-  let isWishlisted = wishlistItems.some((wish) => {
+  let isWishlisted = wishlist.some((wish) => {
     return wish.id === product.id;
   });
 
@@ -29,7 +29,6 @@ const Product = ({ product }) => {
   const handleWishlist = () => {
     if (isWishlisted) {
       console.log("removing");
-
       dispatch(wishlistAction.removeFromWishlist(product));
     } else {
       console.log("adding");

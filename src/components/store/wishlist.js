@@ -1,21 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [];
-
 const wishlistSlice = createSlice({
   name: "wishlist",
-  initialState,
+  initialState: {
+    wishlist: [],
+    sort: "",
+  },
 
   reducers: {
     addToWishlist: (state, action) => {
       console.log("added to wishlist", action.payload);
-      state.push(action.payload);
+      state.wishlist.push(action.payload);
     },
     removeFromWishlist: (state, action) => {
-      return state.filter((item) => item.id !== action.payload.id);
+      state.wishlist = state.wishlist.filter(
+        (item) => item.id !== action.payload.id,
+      );
     },
-    clearWishlist: () => {
-      return [];
+    clearWishlist: (state) => {
+      state.wishlist = [];
+    },
+    setWishlistSort: (state, action) => {
+      state.sort = action.payload;
     },
   },
 });
