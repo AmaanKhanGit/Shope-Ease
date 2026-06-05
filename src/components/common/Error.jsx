@@ -1,5 +1,7 @@
-const Error = () => {
-  return <p>Error</p>;
+const Error = ({ error }) => {
+  console.log(error);
+
+  return <p>{error}</p>;
 };
 
 export default Error;

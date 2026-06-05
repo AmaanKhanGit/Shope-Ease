@@ -17,6 +17,7 @@ const ProductList = () => {
   const [isLoaded, setLoaded] = useState(false);
   const [currPage, setCurrPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [error, setError] = useState(null);
 
   const productsRef = useRef();
 
@@ -47,7 +48,7 @@ const ProductList = () => {
 
       setTotalPages(Math.ceil(data.total / limit));
     } catch (error) {
-      console.error(error);
+      setError(error);
     } finally {
       setLoaded(true);
     }
@@ -75,16 +76,16 @@ const ProductList = () => {
   return (
     <>
       <div ref={productsRef} className="product-cont">
-        {isLoaded ? (
-          result.length <= 0 ? (
-            <Error />
-          ) : (
-            result.map((product) => (
-              <Product key={product.id} product={product} />
-            ))
-          )
-        ) : (
+        {!isLoaded ? (
           <Loader length={10} />
+        ) : error ? (
+          <Error message={error} />
+        ) : result.length === 0 ? (
+          <NoProducts />
+        ) : (
+          result.map((product) => (
+            <Product key={product.id} product={product} />
+          ))
         )}
       </div>
 
