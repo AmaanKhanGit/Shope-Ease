@@ -1,12 +1,17 @@
 import Product from "./Product";
 import "./ProductList.css";
-import { getAllProducts, getProductsByCategory } from "../services/productAPI";
+import {
+  getAllProducts,
+  getProductsByCategory,
+  getProductsBySearch,
+} from "../services/productAPI";
 import { useEffect, useRef, useState } from "react";
 import Loader from "../common/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { productsAction } from "../store/products";
 import { proccessProducts } from "../services/proccessProducts";
 import Pagination from "./Pagination";
+import Error from "../common/Error";
 
 const ProductList = () => {
   const [isLoaded, setLoaded] = useState(false);
@@ -32,6 +37,8 @@ const ProductList = () => {
 
       if (filter) {
         data = await getProductsByCategory(filter, limit, skip);
+      } else if (search) {
+        data = await getProductsBySearch(search);
       } else {
         data = await getAllProducts(limit, skip);
       }
@@ -48,11 +55,11 @@ const ProductList = () => {
 
   useEffect(() => {
     loadProducts();
-  }, [currPage, filter]);
+  }, [currPage, filter, search]);
 
   useEffect(() => {
     setCurrPage(1);
-  }, [filter]);
+  }, [filter, search]);
 
   const changePage = (page) => {
     setCurrPage(page);
@@ -63,15 +70,19 @@ const ProductList = () => {
     });
   };
 
-  const result = proccessProducts(products, search, sort);
+  const result = proccessProducts(products, sort);
 
   return (
     <>
       <div ref={productsRef} className="product-cont">
         {isLoaded ? (
-          result.map((product) => (
-            <Product key={product.id} product={product} />
-          ))
+          result.length <= 0 ? (
+            <Error />
+          ) : (
+            result.map((product) => (
+              <Product key={product.id} product={product} />
+            ))
+          )
         ) : (
           <Loader length={10} />
         )}

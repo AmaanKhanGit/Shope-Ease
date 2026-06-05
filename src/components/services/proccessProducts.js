@@ -1,14 +1,5 @@
-export const proccessProducts = (products, search, sort) => {
+export const proccessProducts = (products, sort) => {
   let result = [...products];
-
-  // Search
-  if (search) {
-    result = result.filter(
-      (item) =>
-        item.title.toLowerCase().includes(search.toLowerCase()) ||
-        item.category.toLowerCase().includes(search.toLowerCase()),
-    );
-  }
 
   // Sort
   if (sort === "Low to High") {

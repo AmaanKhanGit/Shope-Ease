@@ -25,3 +25,11 @@ export const getProductsByCategory = async (filter, limit, skip) => {
 
   return data;
 };
+
+export const getProductsBySearch = async (search) => {
+  const res = await fetch(`
+    https://dummyjson.com/products/search?q=${search}`);
+  const data = await res.json();
+
+  return data;
+};
