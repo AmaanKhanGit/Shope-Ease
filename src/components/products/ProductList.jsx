@@ -12,6 +12,7 @@ import { productsAction } from "../store/products";
 import { proccessProducts } from "../services/proccessProducts";
 import Pagination from "./Pagination";
 import Error from "../common/Error";
+import NoProducts from "../common/NoProducts";
 
 const ProductList = () => {
   const [isLoaded, setLoaded] = useState(false);
@@ -48,6 +49,8 @@ const ProductList = () => {
 
       setTotalPages(Math.ceil(data.total / limit));
     } catch (error) {
+      console.log("error at catch block", error);
+
       setError(error);
     } finally {
       setLoaded(true);

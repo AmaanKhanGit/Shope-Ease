@@ -19,7 +19,7 @@ export const getAllProducts = async (limit, skip) => {
 
 export const getProductsByCategory = async (filter, limit, skip) => {
   const res = await fetch(
-    `  https://dummyjson.com/products/category/${filter}?limit=${limit}&skip=${skip}`,
+    `https://dummyjson.com/products/category/${filter}?limit=${limit}&skip=${skip}`,
   );
   const data = await res.json();
 
@@ -27,8 +27,7 @@ export const getProductsByCategory = async (filter, limit, skip) => {
 };
 
 export const getProductsBySearch = async (search) => {
-  const res = await fetch(`
-    https://dummyjson.com/products/search?q=${search}`);
+  const res = await fetch(`https://dummyjson.com/products/search?q=${search}`);
   const data = await res.json();
 
   return data;
