@@ -3,10 +3,13 @@ import "./Product.css";
 import { cartAction } from "../store/cart";
 import { useState } from "react";
 import { wishlistAction } from "../store/wishlist";
+import { useNavigate } from "react-router-dom";
 
 const Product = ({ product }) => {
   const cartItems = useSelector((store) => store.cart.cartItems);
   const { wishlist } = useSelector((store) => store.wishlist);
+
+  const navigate = useNavigate();
 
   const isAdded = cartItems.some((item) => {
     return item.id === product.id;
@@ -54,7 +57,7 @@ const Product = ({ product }) => {
           <button
             className="btn"
             style={{ backgroundColor: "var(--mainColor)", color: "white" }}
-            onClick={() => console.log("viewed")}
+            onClick={() => navigate(`/product-details/${product.id}`)}
           >
             View details
           </button>

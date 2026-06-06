@@ -11,6 +11,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import Login_SignUp from "./routes/Login_SignUp.jsx";
 import Wishlist from "./routes/Wishlist.jsx";
 import Profile from "./routes/Profile.jsx";
+import ProductDetailsPage from "./routes/ProductDetailsPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/products", element: <Products /> },
+      { path: "/product-details/:productID", element: <ProductDetailsPage /> },
       { path: "/cart", element: <Cart /> },
       { path: "/login-signup", element: <Login_SignUp /> },
       { path: "/profile", element: <Profile /> },
