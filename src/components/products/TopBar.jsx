@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./TopBar.css";
 import { useDispatch } from "react-redux";
 import { productsAction } from "../store/products";
@@ -6,21 +6,13 @@ import SortBox from "./SortBox";
 import FilterBox from "./FilterBox";
 
 const TopBar = () => {
-  const inputRef = useRef();
   const dispatch = useDispatch();
 
   const [isFilter, setFilter] = useState(false);
   const [isSort, setSort] = useState(false);
   const [selectedSort, setSelectedSort] = useState("");
   const [selectedFilter, setSelectedFilter] = useState([]);
-
-  const handleSearch = (e) => {
-    if (e.key === "Enter") {
-      const inputval = inputRef.current.value;
-      // dispatch here
-      dispatch(productsAction.setSearch(inputval));
-    }
-  };
+  const [searchQuery, setSearchQuery] = useState("");
 
   const applySort = () => {
     setSort(false);
@@ -42,14 +34,22 @@ const TopBar = () => {
     e.stopPropagation();
   };
 
+  (useEffect(() => {
+    const timer = setTimeout(() => {
+      dispatch(productsAction.setSearch(searchQuery));
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }),
+    [searchQuery, dispatch]);
+
   return (
     <div className="topbar">
       <div className="search-box">
         <i className="bi bi-search"></i>
 
         <input
-          ref={inputRef}
-          onKeyDown={handleSearch}
+          onChange={(e) => setSearchQuery(e.target.value)}
           type="text"
           placeholder="Search products..."
         />
