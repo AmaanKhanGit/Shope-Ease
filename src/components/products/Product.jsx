@@ -57,7 +57,13 @@ const Product = ({ product }) => {
           <button
             className="btn"
             style={{ backgroundColor: "var(--mainColor)", color: "white" }}
-            onClick={() => navigate(`/product-details/${product.id}`)}
+            onClick={() =>
+              navigate(
+                `/product-details/${product.id}-${product.title
+                  .toLowerCase()
+                  .replaceAll(" ", "-")}`,
+              )
+            }
           >
             View details
           </button>

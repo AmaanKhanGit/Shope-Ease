@@ -17,6 +17,16 @@ export const getAllProducts = async (limit, skip) => {
   return data;
 };
 
+export const getSingleProduct = async (id) => {
+  const res = await fetch(`https://dummyjson.com/products/${id}`);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch product");
+  }
+
+  return await res.json();
+};
+
 export const getProductsByCategory = async (filter, limit, skip) => {
   const res = await fetch(
     `https://dummyjson.com/products/category/${filter}?limit=${limit}&skip=${skip}`,

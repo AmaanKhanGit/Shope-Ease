@@ -4,6 +4,7 @@ const productSlice = createSlice({
   name: "products",
   initialState: {
     products: [],
+    selectedProduct: null,
     search: "",
     sort: "",
     filter: "",
@@ -24,6 +25,9 @@ const productSlice = createSlice({
     },
     clearFilter: (state) => {
       state.filter = "";
+    },
+    setSelectedProduct: (state, action) => {
+      state.selectedProduct = action.payload;
     },
   },
 });

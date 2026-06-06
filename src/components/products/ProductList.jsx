@@ -49,8 +49,6 @@ const ProductList = () => {
 
       setTotalPages(Math.ceil(data.total / limit));
     } catch (error) {
-      console.log("error at catch block", error);
-
       setError(error);
     } finally {
       setLoaded(true);
