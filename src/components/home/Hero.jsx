@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./Hero.css";
+import HeroStats from "./HeroStats";
 const Hero = () => {
   const navigate = useNavigate();
   const handleClicks = () => {
@@ -22,6 +23,7 @@ const Hero = () => {
             Explore Now
           </button>
         </div>
+        <HeroStats />
       </div>
       <div className="right">
         <img src="/hero-image.png" alt="Hero Image" className="hero-image" />
