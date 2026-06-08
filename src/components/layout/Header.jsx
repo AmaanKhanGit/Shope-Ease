@@ -30,11 +30,11 @@ const Header = () => {
             </ul>
           </div>
           <div className="icons">
-            <Link to="/wishlist">
-              <i className="bi bi-heart-fill"></i>
-            </Link>
             <Link to="/profile">
               <i className="bi bi-person-circle"></i>
+            </Link>
+            <Link to="/wishlist">
+              <i className="bi bi-heart-fill"></i>
             </Link>
             <Link to="/cart">
               <i className="bi bi-cart position-relative">
@@ -44,7 +44,6 @@ const Header = () => {
               </i>
             </Link>
           </div>
-         
         </header>
       </div>
 

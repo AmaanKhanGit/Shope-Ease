@@ -42,6 +42,9 @@ const Footer = () => {
               </a>
               <a href="https://x.com/AmaanKhanX" target="_blank">
                 <i className="bi bi-twitter-x"></i>
+              </a>{" "}
+              <a href="http://instagram.com/amaankhanwebs/" target="_blank">
+                <i className="bi bi-instagram"></i>
               </a>
             </div>
           </div>
