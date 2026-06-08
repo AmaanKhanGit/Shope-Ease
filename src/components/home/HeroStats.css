@@ -51,10 +51,22 @@
 @media (max-width: 480px) {
   .hero-stats {
     width: 100%;
-    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
   }
 
   .stat-card {
-    width: 100%;
+    flex: 1;
+    min-width: 90px;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .stat-card h3 {
+    font-size: 20px;
+  }
+
+  .stat-card p {
+    font-size: 12px;
   }
 }

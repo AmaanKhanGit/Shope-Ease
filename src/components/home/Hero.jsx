@@ -7,27 +7,39 @@ const Hero = () => {
     navigate("/products");
   };
   return (
-    <section className="hero sections">
-      <div className="left">
-        <div className="tag">TRENDING COLLECTION 2026</div>
-        <h1 className="heading">Discover Modern Shopping</h1>
-        <p className="phrase">
-          Explore premium fashion, gadgets and accessories with a clean modern
-          shopping experience designed for everyone.
-        </p>
-        <div className="btn-cont">
-          <button className="btns" id="shopeNow" onClick={handleClicks}>
-            Shope Now
-          </button>
-          <button className="btns" id="exploreNow" onClick={handleClicks}>
-            Explore Now
-          </button>
+    <section className="hero section">
+      <div className="hero-main">
+        <div className="hero-content">
+          <div className="tag">TRENDING COLLECTION 2026</div>
+
+          <h1 className="heading">
+            Everything You Need,
+            <br />
+            All in One Place.
+          </h1>
+
+          <p className="phrase">
+            Shop fashion, electronics, groceries and everyday essentials with a
+            seamless shopping experience designed for modern lifestyles.
+          </p>
+
+          <div className="btn-cont">
+            <button className="btn btn-main" onClick={handleClicks}>
+              Shop Now
+            </button>
+
+            <button className="btn btn-second" onClick={handleClicks}>
+              Sign In
+            </button>
+          </div>
         </div>
-        <HeroStats />
+
+        <div className="hero-image-container">
+          <img src="/hero-image.png" alt="Hero Image" className="hero-image" />
+        </div>
       </div>
-      <div className="right">
-        <img src="/hero-image.png" alt="Hero Image" className="hero-image" />
-      </div>
+
+      <HeroStats />
     </section>
   );
 };
