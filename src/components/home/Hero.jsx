@@ -3,8 +3,14 @@ import "./Hero.css";
 import HeroStats from "./HeroStats";
 const Hero = () => {
   const navigate = useNavigate();
-  const handleClicks = () => {
-    navigate("/products");
+  const handleClicks = (e) => {
+    if (e.target.value == "sign-in") {
+      navigate("/login-signup");
+    } else if (e.target.value == "product") {
+      navigate("/products");
+    } else {
+      console.log("Unexpected event");
+    }
   };
   return (
     <section className="hero section">
@@ -24,11 +30,19 @@ const Hero = () => {
           </p>
 
           <div className="btn-cont">
-            <button className="btn btn-main" onClick={handleClicks}>
+            <button
+              className="btn btn-main"
+              value="product"
+              onClick={handleClicks}
+            >
               Shop Now
             </button>
 
-            <button className="btn btn-second" onClick={handleClicks}>
+            <button
+              className="btn btn-second"
+              value="sign-in"
+              onClick={handleClicks}
+            >
               Sign In
             </button>
           </div>
