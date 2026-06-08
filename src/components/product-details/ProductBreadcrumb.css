@@ -1,0 +1,42 @@
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  overflow-x: auto;
+  flex-wrap: nowrap;
+
+  scrollbar-width: none;
+}
+
+.breadcrumb::-webkit-scrollbar {
+  display: none;
+}
+
+.breadcrumb a {
+  color: var(--mainColor);
+  text-decoration: none;
+
+  transition: opacity 0.2s ease;
+}
+
+.breadcrumb a:hover {
+  opacity: 0.7;
+}
+
+.breadcrumb span {
+  color: #b0b0b0;
+}
+
+.breadcrumb p {
+  margin: 0;
+
+  color: #666;
+  font-weight: 500;
+
+  max-width: 250px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

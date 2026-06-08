@@ -130,6 +130,12 @@ body {
   margin: 0 auto;
 }
 
+.product-detail-wrapper {
+  width: 90vw;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
 @media (max-width: 768px) {
   .cart-cont {
     grid-template-columns: 1fr;

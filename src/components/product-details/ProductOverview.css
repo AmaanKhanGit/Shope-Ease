@@ -1,0 +1,13 @@
+.product-overview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .product-overview {
+    grid-template-columns: 1fr;
+  }
+}

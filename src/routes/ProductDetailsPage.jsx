@@ -22,28 +22,20 @@ const ProductDetailsPage = () => {
   );
   const dispatch = useDispatch();
 
-  console.log("outer console", selectedProduct);
-
   const fetchProduct = async () => {
     try {
       let data;
       setLoaded(false);
-      console.log("trying data fetch");
       data = await getSingleProduct(productID);
-      console.log("data is: ", data);
       dispatch(productsAction.setSelectedProduct(data));
     } catch (error) {
-      console.error(error);
       setError(error);
     } finally {
-      console.log("fetched product finally : ", selectedProduct);
       setLoaded(true);
     }
   };
 
   useEffect(() => {
-    console.log("use effect");
-
     fetchProduct();
   }, [productID]);
 
@@ -54,13 +46,13 @@ const ProductDetailsPage = () => {
       ) : error ? (
         <p>error</p>
       ) : (
-        <>
+        <div className="product-detail-wrapper">
           <ProductBreadcrumb />
           <ProductOverview />
           <ProductExtraInfo />
           <ProductReviews />
           <RelatedProducts />
-        </>
+        </div>
       )}
     </>
   );
