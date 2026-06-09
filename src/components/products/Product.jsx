@@ -31,10 +31,8 @@ const Product = ({ product }) => {
 
   const handleWishlist = () => {
     if (isWishlisted) {
-      console.log("removing");
       dispatch(wishlistAction.removeFromWishlist(product));
     } else {
-      console.log("adding");
       dispatch(wishlistAction.addToWishlist(product));
       isWishlisted = false;
     }

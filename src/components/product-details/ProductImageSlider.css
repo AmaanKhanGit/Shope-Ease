@@ -2,6 +2,10 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 20px;
 }
 
 /* Main Image */
@@ -9,14 +13,9 @@
 .main-image {
   position: relative;
 
-  background: white;
-  border-radius: 20px;
-
   overflow: hidden;
 
   aspect-ratio: 1 / 1;
-
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .main-image img {
