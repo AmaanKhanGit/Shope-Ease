@@ -1,13 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import App from "./App.jsx";
 import Home from "./routes/Home.jsx";
 import Products from "./routes/Products.jsx";
-import { Provider } from "react-redux";
 import shopeEaseStore, { persistor } from "./components/store/index.js";
 import Cart from "./routes/Cart.jsx";
-import { PersistGate } from "redux-persist/integration/react";
 import Login_SignUp from "./routes/Login_SignUp.jsx";
 import Wishlist from "./routes/Wishlist.jsx";
 import Profile from "./routes/Profile.jsx";

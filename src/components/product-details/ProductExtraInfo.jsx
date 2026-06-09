@@ -1,5 +1,13 @@
+import Description from "./extra info/Description";
+import Details from "./extra info/Details";
+
 const ProductExtraInfo = () => {
-  return <p>ProductExtraInfo</p>;
+  return (
+    <>
+      <Description />
+      <Details />
+    </>
+  );
 };
 
 export default ProductExtraInfo;

@@ -40,7 +40,7 @@ const ProductImageSlider = () => {
             className={`thumbnail ${activeIndex === index ? "active" : ""}`}
             onClick={() => setActiveIndex(index)}
           >
-            <img src={image} alt="" />
+            <img src={image} alt={image} />
           </div>
         ))}
       </div>

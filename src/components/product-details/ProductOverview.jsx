@@ -1,6 +1,6 @@
-import ProductImageSlider from "./ProductImageSlider";
-import ProductInfo from "./ProductInfo ";
-import "./ProductOverview.css"
+import ProductImageSlider from "./overview/ProductImageSlider";
+import ProductInfo from "./overview/ProductInfo ";
+import "./ProductOverview.css";
 
 const ProductOverview = () => {
   return (
