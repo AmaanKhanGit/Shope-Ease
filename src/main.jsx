@@ -12,6 +12,7 @@ import Login_SignUp from "./routes/Login_SignUp.jsx";
 import Wishlist from "./routes/Wishlist.jsx";
 import Profile from "./routes/Profile.jsx";
 import ProductDetailsPage from "./routes/ProductDetailsPage.jsx";
+import NotFound from "./components/common/NotFound.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
       { path: "/login-signup", element: <Login_SignUp /> },
       { path: "/profile", element: <Profile /> },
       { path: "/wishlist", element: <Wishlist /> },
+      { path: "*", element: <NotFound /> },
     ],
   },
 ]);
