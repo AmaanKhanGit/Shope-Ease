@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./ProductInfo.css";
 import { cartAction } from "../../store/cart";
 import { wishlistAction } from "../../store/wishlist";
+import Details from "../extra info/Details";
 
 const ProductInfo = () => {
   const product = useSelector((store) => store.products.selectedProduct);
@@ -45,7 +46,7 @@ const ProductInfo = () => {
       <div className="rating">⭐ {product.rating}</div>
 
       <p className="meta">
-        {product.brand} | {category}
+        Brand: <span> {product.brand}</span> | Category: <span>{category}</span>
       </p>
 
       <h2 className="price">{product.price}</h2>

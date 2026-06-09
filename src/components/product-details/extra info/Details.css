@@ -1,0 +1,23 @@
+.details-cont {
+  background-color: white;
+  padding: 10px 20px;
+}
+
+.details-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-itmes {
+  display: flex;
+  flex-direction: row;
+}
+
+.table-itmes p {
+  flex: 1;
+}
+
+.table-itmes .title {
+  font-size: 16px;
+  font-weight: 500;
+}

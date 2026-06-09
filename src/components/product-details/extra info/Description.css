@@ -1,0 +1,6 @@
+.description-cont {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 10px 20px;
+}
