@@ -85,8 +85,7 @@ const ProductInfo = () => {
 
       <div className="product-benefits">
         <div>
-          <i className="bi bi-truck"></i> Free Delivery{" "}
-          {/*//^ dilivery detail mujhe nahi mila json se  */}
+          <i className="bi bi-truck"></i> Free Delivery
         </div>
         <div>
           <i className="bi bi-box-fill"></i> {product.shippingInformation}
