@@ -1,0 +1,50 @@
+.reviews-main-cont {
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.review-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-head h1 {
+  font-size: 24px;
+}
+
+.reviews-cont {
+  display: flex;
+  gap: 20px;
+}
+
+.review {
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 10px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.review .quote {
+  font-weight: 600;
+}
+
+.review .name {
+  align-self: end;
+}
+
+.bi-star-fill {
+  color: #f59e0b;
+}
+
+@media (max-width: 820px) {
+  .reviews-cont {
+    flex-direction: column;
+  }
+  .review .quote {
+    font-weight: 700;
+  }
+}

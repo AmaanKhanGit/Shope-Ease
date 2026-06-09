@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 
 const Details = () => {
   const { selectedProduct } = useSelector((store) => store.products);
-  console.log(selectedProduct);
 
   return (
     <div className="details-cont">
@@ -38,15 +37,6 @@ const Details = () => {
           <p className="detail">{selectedProduct.returnPolicy}</p>
         </div>
       </div>
-      {/* 
-        SKU
-        WAIT
-        STOK
-        AVAILABLE
-        SHIPPING
-        WARANTY
-        RETURN POLICY
-      */}
     </div>
   );
 };
