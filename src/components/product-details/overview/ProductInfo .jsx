@@ -43,7 +43,9 @@ const ProductInfo = () => {
   return (
     <div className="product-info">
       <h1>{product.title}</h1>
-      <div className="rating">⭐ {product.rating}</div>
+      <div className="rating">
+        <i className="bi bi-star-fill"></i> {product.rating}
+      </div>
 
       <p className="meta">
         Brand: <span> {product.brand}</span> | Category: <span>{category}</span>
