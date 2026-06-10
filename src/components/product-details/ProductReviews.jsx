@@ -6,8 +6,6 @@ const ProductReviews = () => {
     (store) => store.products.selectedProduct,
   );
 
-  reviews.map((review) => console.log(review.date));
-
   return (
     <div className="reviews-main-cont">
       <div className="review-head">
@@ -21,7 +19,7 @@ const ProductReviews = () => {
         {reviews?.map((review) => {
           const date = new Date(review.date);
           return (
-            <div className="review">
+            <div className="review" key={review.reviewerEmail}>
               <div className="stars">
                 <i className="bi bi-star-fill"></i>
                 {review.rating}
