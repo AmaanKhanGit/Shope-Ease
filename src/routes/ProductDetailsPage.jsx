@@ -9,8 +9,7 @@ import { getSingleProduct } from "../components/services/productAPI";
 import { useDispatch, useSelector } from "react-redux";
 import { productsAction } from "../components/store/products";
 import ProductDetailsSkeleton from "../components/common/ProductDetailsSkeleton";
-import NoProducts from "../components/common/NoProducts";
-
+import Error from "../components/common/Error";
 const ProductDetailsPage = () => {
   const { slug } = useParams();
 
@@ -46,7 +45,7 @@ const ProductDetailsPage = () => {
       {!isLoaded ? (
         <ProductDetailsSkeleton />
       ) : error ? (
-        <NoProducts />
+        <Error />
       ) : (
         <div className="product-detail-wrapper">
           <ProductBreadcrumb />
