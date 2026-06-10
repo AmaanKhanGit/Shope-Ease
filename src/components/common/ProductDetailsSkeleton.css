@@ -1,0 +1,291 @@
+.product-details-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.skeleton-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.06);
+}
+
+.skeleton-block {
+  background: linear-gradient(90deg, #ecebf0 25%, #f5f5f8 50%, #ecebf0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+  border-radius: 12px;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.breadcrumb-skeleton {
+  padding: 18px 18px 16px;
+}
+
+.breadcrumb-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.breadcrumb-separator {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.skeleton-breadcrumb {
+  width: 180px;
+  height: 18px;
+}
+
+.skeleton-breadcrumb.short {
+  width: 110px;
+}
+
+.overview-skeleton {
+  margin-top: 10px;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.gallery-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skeleton-gallery {
+  width: 100%;
+  min-height: 420px;
+}
+
+.thumbnails-skeleton {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.skeleton-thumb {
+  width: 100%;
+  min-height: 84px;
+}
+
+.info-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skeleton-title {
+  width: 70%;
+  height: 30px;
+}
+
+.skeleton-rating {
+  width: 100px;
+  height: 18px;
+}
+
+.skeleton-meta {
+  width: 45%;
+  height: 18px;
+}
+
+.skeleton-price {
+  width: 40%;
+  height: 36px;
+}
+
+.skeleton-paragraph {
+  width: 100%;
+  height: 18px;
+}
+
+.skeleton-paragraph.short {
+  width: 80%;
+}
+
+.skeleton-paragraph.shorter {
+  width: 60%;
+}
+
+.button-row-skeleton {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.skeleton-button {
+  width: 160px;
+  height: 46px;
+}
+
+.skeleton-button.secondary {
+  width: 120px;
+}
+
+.benefits-skeleton {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.skeleton-benefit {
+  height: 58px;
+}
+
+.extra-info-skeleton {
+  margin-top: 10px;
+}
+
+.extra-info-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.description-skeleton,
+.details-skeleton {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.skeleton-heading {
+  width: 200px;
+  height: 28px;
+}
+
+.details-table-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.details-row-skeleton {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.skeleton-table-title {
+  width: 35%;
+  height: 18px;
+}
+
+.skeleton-table-detail {
+  width: 55%;
+  height: 18px;
+}
+
+.reviews-skeleton {
+  margin-top: 20px;
+}
+
+.review-header-skeleton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.reviews-grid-skeleton {
+  display: flex;
+  gap: 18px;
+}
+
+.review-card-skeleton {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 14px;
+  background: #f8f8fb;
+}
+
+.related-skeleton {
+  margin-top: 20px;
+}
+
+.related-header-skeleton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.related-carousel-skeleton {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.related-item-skeleton {
+  min-width: 280px;
+  min-height: 220px;
+  flex: 0 0 280px;
+}
+
+@media (max-width: 820px) {
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefits-skeleton {
+    grid-template-columns: 1fr;
+  }
+
+  .extra-info-grid {
+    flex-direction: column;
+  }
+
+  .reviews-grid-skeleton {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 620px) {
+  .breadcrumb-row {
+    gap: 10px;
+  }
+
+  .skeleton-breadcrumb,
+  .skeleton-breadcrumb.short {
+    width: 100%;
+  }
+
+  .button-row-skeleton {
+    flex-direction: column;
+  }
+
+  .related-item-skeleton {
+    min-width: 100%;
+    flex: 1 0 100%;
+  }
+}
