@@ -13,6 +13,7 @@ import Wishlist from "./routes/Wishlist.jsx";
 import Profile from "./routes/Profile.jsx";
 import ProductDetailsPage from "./routes/ProductDetailsPage.jsx";
 import NotFound from "./components/common/NotFound.jsx";
+import ProtectedRoute from "./routes/ProtectedRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,8 +25,22 @@ const router = createBrowserRouter([
       { path: "/product-details/:slug", element: <ProductDetailsPage /> },
       { path: "/cart", element: <Cart /> },
       { path: "/login-signup", element: <Login_SignUp /> },
-      { path: "/profile", element: <Profile /> },
-      { path: "/wishlist", element: <Wishlist /> },
+      {
+        path: "/profile",
+        element: (
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/wishlist",
+        element: (
+          <ProtectedRoute>
+            <Wishlist />
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
   {

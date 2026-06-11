@@ -1,0 +1,58 @@
+.rightForm {
+  background-color: var(--mainColor);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px;
+}
+
+.formWrapper {
+  width: 100%;
+  max-width: 550px;
+
+  background-color: white;
+
+  border-radius: 24px;
+
+  padding: 40px;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+.authSwitch {
+  text-align: center;
+
+  margin-top: 24px;
+
+  color: #666;
+
+  font-size: 0.95rem;
+}
+
+.authLink {
+  margin-left: 4px;
+
+  color: var(--mainColor);
+
+  font-weight: 600;
+
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.authLink:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .rightForm {
+    padding: 10px;
+    background: transparent;
+  }
+
+  .formWrapper {
+    padding: 30px 20px;
+  }
+}

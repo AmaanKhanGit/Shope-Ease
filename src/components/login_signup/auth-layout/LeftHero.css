@@ -1,0 +1,66 @@
+.leftHero {
+  background-color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 60px;
+}
+
+.heroContent {
+  max-width: 550px;
+}
+
+.heroTag {
+  display: inline-block;
+
+  padding: 8px 16px;
+
+  background-color: var(--mainColor);
+  color: white;
+
+  border-radius: 999px;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  margin-bottom: 24px;
+}
+
+.heroHeading {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+
+  line-height: 1.1;
+
+  margin-bottom: 20px;
+
+  color: var(--mainColor);
+}
+
+.heroHeading span {
+  display: block;
+}
+
+.heroDescription {
+  font-size: 1.05rem;
+  line-height: 1.8;
+
+  color: #555;
+
+  margin-bottom: 40px;
+}
+
+.heroImage {
+  width: 100%;
+  max-width: 500px;
+
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .leftHero {
+    display: none;
+  }
+}

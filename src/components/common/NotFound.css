@@ -1,3 +1,77 @@
-h1 {
+.not-found {
+  background-color: white;
+
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px 20px;
+
+  margin-top: -100px;
+}
+
+.not-found-content {
+  max-width: 650px;
+  width: 100%;
+
+  text-align: center;
+}
+
+.image-placeholder {
+  width: 100%;
+  max-width: 420px;
+
+  margin: 0 auto 30px;
+}
+
+.image-placeholder img {
+  width: 100%;
+  display: block;
+}
+
+.not-found h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+
   color: var(--mainColor);
+
+  margin-bottom: 16px;
+}
+
+.not-found p {
+  color: var(--textColor);
+  font-size: 1rem;
+  line-height: 1.7;
+
+  max-width: 500px;
+  margin: 0 auto 32px;
+}
+
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 28px;
+
+  background-color: var(--mainColor);
+  color: white;
+
+  border: 1px solid transparent;
+  border-radius: 12px;
+
+  text-decoration: none;
+  font-weight: 600;
+
+  transition: all 0.3s ease;
+}
+
+.home-btn:hover {
+  border: 1px solid var(--mainColor);
+  background-color: white;
+  color: var(--mainColor);
+
+  transform: translateY(-2px);
 }

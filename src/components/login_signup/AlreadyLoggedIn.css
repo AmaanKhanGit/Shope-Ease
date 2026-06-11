@@ -1,0 +1,70 @@
+.alreadyLoggedIn {
+  min-height: 60vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loggedInCard {
+  max-width: 500px;
+
+  text-align: center;
+
+  padding: 40px;
+
+  background: white;
+
+  border-radius: 24px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.successIcon {
+  width: 80px;
+  height: 80px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  background: #198754;
+
+  color: white;
+
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.loggedInCard h2 {
+  margin-bottom: 12px;
+
+  color: var(--mainColor);
+}
+
+.loggedInCard p {
+  color: #666;
+
+  line-height: 1.6;
+
+  margin-bottom: 24px;
+}
+
+.continueBtn {
+  display: inline-block;
+
+  padding: 12px 24px;
+
+  border-radius: 12px;
+
+  text-decoration: none;
+
+  background: var(--mainColor);
+  color: white;
+
+  font-weight: 600;
+}
