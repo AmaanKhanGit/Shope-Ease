@@ -49,4 +49,7 @@
   .releted-product-cont {
     overflow-x: auto;
   }
+  .releted-product-cont > * {
+    width: 240px;
+  }
 }
