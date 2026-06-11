@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./ProductInfo.css";
-import { cartAction } from "../../store/cart";
-import { wishlistAction } from "../../store/wishlist";
+import { cartAction } from "../../../store/cart";
+import { wishlistAction } from "../../../store/wishlist";
 import Details from "../extra info/Details";
 
 const ProductInfo = () => {

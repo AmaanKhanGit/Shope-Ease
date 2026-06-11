@@ -3,6 +3,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import productsReducer from "./products";
 import cartReducer from "./cart";
 import wishlistReducer from "./wishlist";
+import userReducer from "./user";
 
 //~ setup for local storage in redux
 import { persistStore, persistReducer } from "redux-persist";
@@ -15,13 +16,14 @@ const realStorage = storage.default || storage;
 const rootPersistConfig = {
   key: "root",
   storage: realStorage,
-  whitelist: ["cart", "wishlist"], // only persist these slices
+  whitelist: ["cart", "wishlist", "user"], // only persist these slices
 };
 
 const rootReducer = combineReducers({
   products: productsReducer,
   cart: cartReducer,
   wishlist: wishlistReducer,
+  user: userReducer,
 });
 
 const persistedReducer = persistReducer(rootPersistConfig, rootReducer);

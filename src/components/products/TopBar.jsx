@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./TopBar.css";
 import { useDispatch } from "react-redux";
-import { productsAction } from "../store/products";
+import { productsAction } from "../../store/products";
 import SortBox from "./SortBox";
 import FilterBox from "./FilterBox";
 

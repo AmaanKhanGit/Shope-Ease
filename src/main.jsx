@@ -6,7 +6,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import App from "./App.jsx";
 import Home from "./routes/Home.jsx";
 import Products from "./routes/Products.jsx";
-import shopeEaseStore, { persistor } from "./components/store/index.js";
+import shopeEaseStore, { persistor } from "./store/index.js";
 import Cart from "./routes/Cart.jsx";
 import Login_SignUp from "./routes/Login_SignUp.jsx";
 import Wishlist from "./routes/Wishlist.jsx";
@@ -26,8 +26,11 @@ const router = createBrowserRouter([
       { path: "/login-signup", element: <Login_SignUp /> },
       { path: "/profile", element: <Profile /> },
       { path: "/wishlist", element: <Wishlist /> },
-      { path: "*", element: <NotFound /> },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
 

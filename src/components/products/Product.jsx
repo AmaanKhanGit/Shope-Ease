@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./Product.css";
-import { cartAction } from "../store/cart";
+import { cartAction } from "../../store/cart";
 import { useState } from "react";
-import { wishlistAction } from "../store/wishlist";
+import { wishlistAction } from "../../store/wishlist";
 import { useNavigate } from "react-router-dom";
 
 const Product = ({ product }) => {

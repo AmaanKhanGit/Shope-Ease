@@ -8,7 +8,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 import Loader from "../common/Loader";
 import { useDispatch, useSelector } from "react-redux";
-import { productsAction } from "../store/products";
+import { productsAction } from "../../store/products";
 import { proccessProducts } from "../services/proccessProducts";
 import Pagination from "./Pagination";
 import Error from "../common/Error";

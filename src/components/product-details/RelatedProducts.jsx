@@ -18,8 +18,7 @@ const RelatedProducts = () => {
           `https://dummyjson.com/products/category/${category}?limit=5`,
         );
         setLoading(true);
-        const data = await res.json(); // ✅ await here
-        console.log("use effect", data);
+        const data = await res.json();
         setProducts(data.products);
         return data;
       } catch (error) {

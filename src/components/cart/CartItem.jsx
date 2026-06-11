@@ -1,6 +1,6 @@
 import { MdDelete } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { cartAction } from "../store/cart";
+import { cartAction } from "../../store/cart";
 
 const CartItem = ({ item }) => {
   const dispatch = useDispatch();

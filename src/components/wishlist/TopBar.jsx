@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./TopBar.css";
-import { wishlistAction } from "../store/wishlist";
+import { wishlistAction } from "../../store/wishlist";
 import { useState } from "react";
 
 const TopBar = () => {

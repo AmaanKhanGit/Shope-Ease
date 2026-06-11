@@ -7,7 +7,7 @@ import RelatedProducts from "../components/product-details/RelatedProducts";
 import { useEffect, useState } from "react";
 import { getSingleProduct } from "../components/services/productAPI";
 import { useDispatch, useSelector } from "react-redux";
-import { productsAction } from "../components/store/products";
+import { productsAction } from "../store/products";
 import ProductDetailsSkeleton from "../components/common/ProductDetailsSkeleton";
 import Error from "../components/common/Error";
 const ProductDetailsPage = () => {
