@@ -275,8 +275,7 @@
     gap: 10px;
   }
 
-  .skeleton-breadcrumb,
-  .skeleton-breadcrumb.short {
+  .skeleton-breadcrumb {
     width: 100%;
   }
 
