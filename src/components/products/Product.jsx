@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 const Product = ({ product }) => {
   const cartItems = useSelector((store) => store.cart.cartItems);
   const { wishlist } = useSelector((store) => store.wishlist);
+  const isAuthenticated = useSelector((store) => store.user.isAuthenticated);
 
   const navigate = useNavigate();
 
@@ -30,11 +31,15 @@ const Product = ({ product }) => {
   };
 
   const handleWishlist = () => {
-    if (isWishlisted) {
-      dispatch(wishlistAction.removeFromWishlist(product));
+    if (!isAuthenticated) {
+      navigate("/login-signup");
     } else {
-      dispatch(wishlistAction.addToWishlist(product));
-      isWishlisted = false;
+      if (isWishlisted) {
+        dispatch(wishlistAction.removeFromWishlist(product));
+      } else {
+        dispatch(wishlistAction.addToWishlist(product));
+        isWishlisted = false;
+      }
     }
   };
 
