@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import "./CartSummary.css";
+import toast from "react-hot-toast";
 
 const CartSummary = () => {
   const cartItems = useSelector((store) => store.cart.cartItems);
@@ -11,6 +12,13 @@ const CartSummary = () => {
   );
   const discount = price * 0.1;
   const totalPrice = price - discount;
+
+  const handleProceed = () => {
+    toast("Seriously!", {
+      icon: "🫤",
+      position: "top-center",
+    });
+  };
 
   return (
     <>
@@ -43,7 +51,9 @@ const CartSummary = () => {
             <span>${totalPrice.toFixed(2)}</span>
           </div>
 
-          <button className="checkout-btn">Proceed to Checkout</button>
+          <button className="checkout-btn" onClick={handleProceed}>
+            Proceed to Checkout
+          </button>
         </div>
       </div>
     </>
