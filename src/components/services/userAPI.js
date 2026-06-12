@@ -30,3 +30,28 @@ export const user = async (accessToken) => {
 
   return user;
 };
+
+export const addUser = async ({
+  firstName,
+  lastName,
+  userName,
+  email,
+  password,
+}) => {
+  const response = await fetch("https://dummyjson.com/users/add", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      firstName: firstName,
+      lastName: lastName,
+      userName: userName,
+      email: email,
+      password: password,
+      /* other user data */
+    }),
+  });
+
+  const userData = await response.json();
+
+  return userData;
+};
