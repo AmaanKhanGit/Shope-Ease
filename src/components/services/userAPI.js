@@ -10,6 +10,10 @@ export const login = async (currUserName, currPassword) => {
 
   const data = await res.json();
 
+  if (!res.ok) {
+    throw new Error(data.message || "Login Failed");
+  }
+
   return data.accessToken;
 };
 

@@ -21,33 +21,45 @@
 .inputGroup {
   display: flex;
   flex-direction: column;
-
   margin-bottom: 20px;
 }
 
 .inputGroup label {
   font-weight: 600;
-
   margin-bottom: 8px;
-
   color: #444;
 }
 
-.inputGroup input {
-  padding: 14px 16px;
+.inputGroup {
+  position: relative; /* key for positioning the icon */
+}
 
+.inputGroup input {
+  padding: 14px 44px 14px 16px; /* extra right padding for the icon */
   border: 1px solid #ddd;
   border-radius: 12px;
-
   font-size: 1rem;
-
   outline: none;
-
   transition: all 0.2s ease;
 }
 
 .inputGroup input:focus {
   border-color: var(--mainColor);
+}
+
+.inputGroup i {
+  position: absolute;
+  right: 16px;
+  top: 70%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.inputGroup i:hover {
+  color: var(--mainColor);
 }
 
 .loginBtn {

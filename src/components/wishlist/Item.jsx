@@ -2,9 +2,31 @@ import { useDispatch, useSelector } from "react-redux";
 import "./Item.css";
 import { cartAction } from "../../store/cart";
 import { wishlistAction } from "../../store/wishlist";
+import toast from "react-hot-toast";
 
 const Item = ({ item }) => {
   const dispatch = useDispatch();
+  const handleAdd = () => {
+    dispatch(cartAction.addToCart(item));
+    toast.success("Added to cart!");
+  };
+
+  const handleRemove = () => {
+    toast.error("Removed from wishlist");
+    dispatch(wishlistAction.removeFromWishlist(item));
+  };
+
+  const handleRemoveCart = () => {
+    dispatch(cartAction.removeFromCart(item));
+    toast.error("removed from cart");
+  };
+
+  const cartItems = useSelector((store) => store.cart.cartItems);
+
+  const isAddedToCart = cartItems.some((cartitem) => {
+    return cartitem.id === item.id;
+  });
+
   return (
     <div className="wishlist-card">
       <div className="wishlist-img">
@@ -18,16 +40,19 @@ const Item = ({ item }) => {
           <button
             className="btn"
             style={{ backgroundColor: "var(--mainColor)", color: "white" }}
-            onClick={() => dispatch(wishlistAction.removeFromWishlist(item))}
+            onClick={handleRemove}
           >
             Remove
           </button>
-          <button
-            className="btn btn-success"
-            onClick={() => dispatch(cartAction.addToCart(item))}
-          >
-            Add to Cart
-          </button>
+          {isAddedToCart ? (
+            <button className="btn btn-danger" onClick={handleRemoveCart}>
+              Remove
+            </button>
+          ) : (
+            <button className="btn btn-success" onClick={handleAdd}>
+              Add to Cart
+            </button>
+          )}
         </div>
       </div>
     </div>

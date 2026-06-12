@@ -5,6 +5,7 @@ import { cartAction } from "../../store/cart";
 const CartItem = ({ item }) => {
   const dispatch = useDispatch();
   const handleRemove = () => {
+    toast.error("removed from cart!");
     dispatch(cartAction.removeFromCart(item));
   };
 

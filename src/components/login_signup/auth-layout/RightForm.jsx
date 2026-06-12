@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import AlreadyLoggedIn from "../AlreadyLoggedIn";
 
 const RightForm = () => {
-  const [isLogin, setLogin] = useState(true);
+  const [isLogin, setLogin] = useState(true); //it will be replaced with router
   const isAuthenticated = useSelector((store) => store.user.isAuthenticated);
   if (isAuthenticated) {
     return (
@@ -23,6 +23,7 @@ const RightForm = () => {
       <div className="formWrapper">
         {isLogin ? <Login /> : <SignUp setLogin={setLogin} />}
         <SocialLogin />
+        {/* // it will be replaced with router */}
         {isLogin ? (
           <p className="authSwitch">
             {" "}

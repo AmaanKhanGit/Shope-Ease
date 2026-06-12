@@ -4,6 +4,7 @@ import { cartAction } from "../../store/cart";
 import { useState } from "react";
 import { wishlistAction } from "../../store/wishlist";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Product = ({ product }) => {
   const cartItems = useSelector((store) => store.cart.cartItems);
@@ -23,10 +24,12 @@ const Product = ({ product }) => {
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
+    toast.success("Added to cart!");
     dispatch(cartAction.addToCart(product));
   };
 
   const handleRemove = () => {
+    toast.error("removed from cart!");
     dispatch(cartAction.removeFromCart(product));
   };
 
@@ -35,8 +38,10 @@ const Product = ({ product }) => {
       navigate("/login-signup");
     } else {
       if (isWishlisted) {
+        toast.error("removed item!");
         dispatch(wishlistAction.removeFromWishlist(product));
       } else {
+        toast.success("Added to wishlist!");
         dispatch(wishlistAction.addToWishlist(product));
         isWishlisted = false;
       }

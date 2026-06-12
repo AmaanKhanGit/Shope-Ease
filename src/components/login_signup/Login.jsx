@@ -5,6 +5,7 @@ import { login, user } from "../services/userAPI";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import LoadingOverlay from "../common/LoadingOverlay";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const userName = useRef();
@@ -14,10 +15,11 @@ const Login = () => {
   const nav = useNavigate();
 
   const [isLoading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [isPass, setPass] = useState(true);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     setLoading(true);
 
     const currUserName = userName.current.value;
@@ -26,17 +28,28 @@ const Login = () => {
     try {
       const accessToken = await login(currUserName, currPassword);
       const userdata = await user(accessToken);
+
+      toast.success("Welcome Back!");
+
       dispatch(
         userAction.login({
           token: accessToken,
           user: userdata,
         }),
       );
+
+      nav("/");
     } catch (error) {
-      setError(true);
+      toast.error("Invalid User ID or Password", {
+        style: {
+          border: "1px solid #8b0025",
+          color: "#8b0025",
+        },
+      });
     } finally {
       setLoading(false);
-      nav("/");
+      userName.current.value = "";
+      userPassword.current.value = "";
     }
   };
   return (
@@ -54,6 +67,7 @@ const Login = () => {
           type="text"
           placeholder="Enter your user id"
           name="userId"
+          required
         />
       </div>
 
@@ -62,10 +76,15 @@ const Login = () => {
 
         <input
           ref={userPassword}
-          type="password"
+          type={`${isPass ? "password" : "text"}`}
           placeholder="Enter your password"
           name="password"
-        />
+          required
+        ></input>
+        <i
+          className={`bi bi-eye${isPass ? "-slash" : ""}`}
+          onClick={() => setPass((prev) => !prev)}
+        ></i>
       </div>
 
       <button type="submit" className="loginBtn">

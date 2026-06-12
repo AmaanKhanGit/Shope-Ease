@@ -14,6 +14,7 @@ import Profile from "./routes/Profile.jsx";
 import ProductDetailsPage from "./routes/ProductDetailsPage.jsx";
 import NotFound from "./components/common/NotFound.jsx";
 import ProtectedRoute from "./routes/ProtectedRoute.jsx";
+import { Toaster } from "react-hot-toast";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,13 @@ createRoot(document.getElementById("root")).render(
     <Provider store={shopeEaseStore}>
       {/*//~ setup for redux-persist*/}
       <PersistGate loading={null} persistor={persistor}>
+        <Toaster
+          position="top-right"
+          containerStyle={{
+            top: 100,
+            right: 20,
+          }}
+        />
         <RouterProvider router={router} />
       </PersistGate>
     </Provider>
