@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import "./SignUp.css";
+import "./Signup.css";
 import toast from "react-hot-toast";
 import { addUser } from "../services/userAPI";
 import LoadingOverlay from "../common/LoadingOverlay";
