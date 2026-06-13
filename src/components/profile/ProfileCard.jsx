@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import "./ProfileCard.css";
 import { useSelector } from "react-redux";
 
@@ -23,7 +24,10 @@ const ProfileCard = () => {
         </div>
       </div>
 
-      <button className="edit-profile-btn">
+      <button
+        className="edit-profile-btn"
+        onClick={() => toast.success("soon")}
+      >
         <i className="bi bi-pencil"></i>
         Edit Profile
       </button>
