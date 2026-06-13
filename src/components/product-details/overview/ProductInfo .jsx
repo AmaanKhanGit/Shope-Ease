@@ -3,11 +3,16 @@ import "./ProductInfo.css";
 import { cartAction } from "../../../store/cart";
 import { wishlistAction } from "../../../store/wishlist";
 import Details from "../extra info/Details";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const ProductInfo = () => {
   const product = useSelector((store) => store.products.selectedProduct);
   const cartItems = useSelector((store) => store.cart.cartItems);
   const { wishlist } = useSelector((store) => store.wishlist);
+  const { isAuthenticated } = useSelector((store) => store.user);
+
+  const nav = useNavigate();
 
   if (!product) return null;
 
@@ -23,16 +28,24 @@ const ProductInfo = () => {
 
   const handleCart = () => {
     if (isAddedToCart) {
+      toast.error("removed item");
       dispatch(cartAction.removeFromCart(product));
     } else {
+      toast.success("added successfully");
       dispatch(cartAction.addToCart(product));
     }
   };
 
   const handleWishlist = () => {
+    if (!isAuthenticated) {
+      nav("/login-signup");
+      return;
+    }
     if (isWishlisted) {
+      toast.error("removed item");
       dispatch(wishlistAction.removeFromWishlist(product));
     } else {
+      toast.success("added successfully");
       dispatch(wishlistAction.addToWishlist(product));
     }
   };

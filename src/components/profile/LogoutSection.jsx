@@ -3,6 +3,7 @@ import "./LogoutSection.css";
 import { useNavigate } from "react-router-dom";
 import { userAction } from "../../store/user";
 import { useState } from "react";
+import { wishlistAction } from "../../store/wishlist";
 
 const LogoutSection = () => {
   const dispatch = useDispatch();
@@ -11,6 +12,7 @@ const LogoutSection = () => {
   const handleLogOut = () => {
     navigate("/");
     dispatch(userAction.logout());
+    dispatch(wishlistAction.clearWishlist());
   };
   return (
     <div className="logout-section">

@@ -3,6 +3,7 @@ import "./MobileProfileSidebar.css";
 import { useNavigate } from "react-router-dom";
 import { userAction } from "../../store/user";
 import toast from "react-hot-toast";
+import { wishlistAction } from "../../store/wishlist";
 
 const MobileProfileSidebar = ({ show, setShow }) => {
   const dispatch = useDispatch();
@@ -11,6 +12,7 @@ const MobileProfileSidebar = ({ show, setShow }) => {
   const handleLogOut = () => {
     navigate("/");
     dispatch(userAction.logout());
+    dispatch(wishlistAction.clearWishlist());
   };
 
   const handleDummyBtn = () => {

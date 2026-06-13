@@ -3,6 +3,7 @@ import "./ProfileSidebar.css";
 import { useDispatch } from "react-redux";
 import { userAction } from "../../store/user";
 import { useNavigate } from "react-router-dom";
+import { wishlistAction } from "../../store/wishlist";
 
 const ProfileSidebar = () => {
   const handleBtnClick = () => {
@@ -15,6 +16,7 @@ const ProfileSidebar = () => {
   const handleLogOut = () => {
     navigate("/");
     dispatch(userAction.logout());
+    dispatch(wishlistAction.clearWishlist());
   };
 
   return (
