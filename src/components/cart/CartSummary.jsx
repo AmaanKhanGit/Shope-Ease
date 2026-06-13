@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import "./CartSummary.css";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const CartSummary = () => {
   const cartItems = useSelector((store) => store.cart.cartItems);
@@ -13,7 +14,14 @@ const CartSummary = () => {
   const discount = price * 0.1;
   const totalPrice = price - discount;
 
+  const { isAuthenticated } = useSelector((store) => store.user);
+  const nav = useNavigate();
+
   const handleProceed = () => {
+    if (!isAuthenticated) {
+      nav("/login-signup");
+      return;
+    }
     toast("Seriously!", {
       icon: "🫤",
       position: "top-center",

@@ -6,7 +6,7 @@ const CartSummary = () => {
   const { cartItems } = useSelector((store) => store.cart);
 
   return (
-    <div className="cart-summary">
+    <div className="profile-cart-summary">
       <div className="cart-icon">
         <i className="bi bi-cart3"></i>
       </div>
