@@ -190,7 +190,7 @@ body {
 }
 
 .wishlist-summary a:hover,
-.cart-summary a:hover {
+.profile-cart-summary a:hover {
   background: var(--mainColor);
   color: white;
 }
