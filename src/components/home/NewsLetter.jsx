@@ -1,8 +1,11 @@
+import toast from "react-hot-toast";
 import "./NewsLetter.css";
 
 const NewsLetter = () => {
   const handleSubscribe = () => {
-    console.log("subscribed !");
+    toast.success("Subscribed Successfully!", {
+      position: "bottom-center",
+    });
   };
 
   return (

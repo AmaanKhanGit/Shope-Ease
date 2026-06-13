@@ -38,7 +38,6 @@ const SignUp = ({ setLogin }) => {
         email,
         password,
       });
-      console.log(userData);
     } catch (error) {
       console.error(error);
     } finally {
