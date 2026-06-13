@@ -1,0 +1,88 @@
+.mobile-sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.3s;
+  z-index: 1040;
+}
+
+.mobile-sidebar-backdrop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-profile-sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+
+  width: 280px;
+  height: 100vh;
+
+  background: white;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 1.25rem;
+
+  transition: 0.3s ease;
+  z-index: 1050;
+}
+
+.mobile-profile-sidebar.show {
+  right: 0;
+}
+
+.mobile-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 1.5rem;
+}
+
+.mobile-sidebar-header h4 {
+  margin: 0;
+  color: var(--mainColor);
+}
+
+.mobile-sidebar-header button {
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+}
+
+.mobile-sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mobile-profile-sidebar .sidebar-link {
+  border: none;
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px;
+  border-radius: 12px;
+
+  text-align: left;
+}
+
+.mobile-profile-sidebar .sidebar-link.active {
+  background: rgba(152, 0, 46, 0.12);
+  color: var(--mainColor);
+  font-weight: 600;
+}
+
+.mobile-profile-sidebar .logout-btn {
+  color: #dc3545;
+}

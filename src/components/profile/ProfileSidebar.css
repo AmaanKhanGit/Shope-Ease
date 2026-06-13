@@ -45,3 +45,9 @@
 .logout-btn {
   color: #dc3545;
 }
+
+@media (max-width: 768px) {
+  .profile-sidebar {
+    display: none;
+  }
+}

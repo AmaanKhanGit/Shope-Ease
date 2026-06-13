@@ -1,0 +1,38 @@
+.wishlist-summary {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.wishlist-icon {
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: rgba(152, 0, 46, 0.1);
+}
+
+.wishlist-icon i {
+  font-size: 1.5rem;
+  color: var(--mainColor);
+}
+
+.wishlist-details h3 {
+  margin: 0;
+  color: var(--mainColor);
+}
+
+.wishlist-details p {
+  margin: 0.3rem 0 0;
+  color: #6c757d;
+}

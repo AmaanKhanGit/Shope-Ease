@@ -1,0 +1,55 @@
+.personal-information {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.personal-information-header {
+  margin-bottom: 24px;
+}
+
+.personal-information-header h2 {
+  margin: 0;
+  color: var(--mainColor);
+  font-size: 1.4rem;
+}
+
+.personal-information-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.info-item {
+  background: #fafafa;
+  border-radius: 14px;
+  padding: 16px;
+  border: 1px solid #eee;
+}
+
+.info-item span {
+  display: block;
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-bottom: 6px;
+}
+
+.info-item p {
+  margin: 0;
+  font-weight: 600;
+  color: #212529;
+}
+
+.address-item {
+  grid-column: 1 / -1;
+}
+@media (max-width: 768px) {
+  .personal-information-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .address-item {
+    grid-column: auto;
+  }
+}

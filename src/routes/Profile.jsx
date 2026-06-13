@@ -6,34 +6,24 @@ import WishlistSummary from "../components/profile/WishlistSummary";
 import CartSummary from "../components/profile/CartSummary";
 import PersonalInformation from "../components/profile/PersonalInformation";
 import LogoutSection from "../components/profile/LogoutSection";
+import { useState } from "react";
+import MobileProfileSidebar from "../components/profile/MobileProfileSidebar";
 
 const Profile = () => {
-  const userDataHere = useSelector((store) => store.user);
-  console.log(userDataHere);
-
-  //^ remember <div className="profile-card-ui">
-
-  //? details
-  //? first name
-  //? last name
-  //? email
-  //? image
-  //? gender
-  //? address
-  //? username
-  //? age
-  //? dob
-  //? phone
+  const [showSidebar, setShowSidebar] = useState(false);
 
   return (
     <div className="profile-page">
       <ProfileSidebar />
+      <MobileProfileSidebar show={showSidebar} setShow={setShowSidebar} />
 
       <div className="profile-content">
-        <ProfileHeader />
+        <ProfileHeader setShowSidebar={setShowSidebar} />
         <ProfileCard />
-        <WishlistSummary />
-        <CartSummary />
+        <div className="profile-summary-container">
+          <WishlistSummary />
+          <CartSummary />
+        </div>
         <PersonalInformation />
         <LogoutSection />
       </div>
