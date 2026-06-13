@@ -139,7 +139,7 @@ Replace the values above with your preferred DummyJSON test account.
 ## Installation
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/AmaanKhanGit/Shope-Ease.git
 
 cd shop-ease
 
