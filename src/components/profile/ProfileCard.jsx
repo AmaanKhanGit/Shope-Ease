@@ -1,7 +1,7 @@
 import toast from "react-hot-toast";
 import "./ProfileCard.css";
 import { useSelector } from "react-redux";
-import EditProfile from "./Editprofile";
+import EditProfile from "./EditProfile";
 import { useState } from "react";
 
 const ProfileCard = () => {
