@@ -19,6 +19,9 @@ const userSlice = createSlice({
       state.user = null;
       state.isAuthenticated = false;
     },
+    editProfile: (state, action) => {
+      state.user = { ...state.user, ...action.payload };
+    },
   },
 });
 

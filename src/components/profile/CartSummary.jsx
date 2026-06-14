@@ -16,7 +16,7 @@ const CartSummary = () => {
         <p>{cartItems.length} Items In Cart</p>
       </div>
       <Link to="/cart">
-        View Cart <i className="bi bi-arrow-right"></i>
+        View <i className="bi bi-arrow-right"></i>
       </Link>
     </div>
   );

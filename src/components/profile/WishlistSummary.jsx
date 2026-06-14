@@ -16,7 +16,7 @@ const WishlistSummary = () => {
         <p>{wishlist.length} Items Saved</p>
       </div>
       <Link to="/wishlist">
-        View Cart <i className="bi bi-arrow-right"></i>
+        View <i className="bi bi-arrow-right"></i>
       </Link>
     </div>
   );

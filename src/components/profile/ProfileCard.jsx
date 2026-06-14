@@ -1,9 +1,13 @@
 import toast from "react-hot-toast";
 import "./ProfileCard.css";
 import { useSelector } from "react-redux";
+import EditProfile from "./Editprofile";
+import { useState } from "react";
 
 const ProfileCard = () => {
   const { user } = useSelector((store) => store.user);
+
+  const [close, onClose] = useState(true);
 
   return (
     <div className="profile-card-ui profile-card">
@@ -24,13 +28,12 @@ const ProfileCard = () => {
         </div>
       </div>
 
-      <button
-        className="edit-profile-btn"
-        onClick={() => toast.success("soon")}
-      >
+      <button className="edit-profile-btn" onClick={() => onClose(false)}>
         <i className="bi bi-pencil"></i>
         Edit Profile
       </button>
+
+      {!close && <EditProfile onClose={onClose} />}
     </div>
   );
 };
