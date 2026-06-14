@@ -6,8 +6,6 @@ import { userAction } from "../../store/user";
 const EditProfile = ({ onClose }) => {
   const { user } = useSelector((store) => store.user);
 
-  console.log(user);
-
   const firstNameRef = useRef();
   const lastNameRef = useRef();
   const emailRef = useRef();
